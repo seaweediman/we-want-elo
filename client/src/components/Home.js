@@ -1,4 +1,4 @@
-function HomePage() {
+function Home() {
   return (
     <div class="container-center-horizontal">
       <div class="homepage screen">
@@ -16,18 +16,13 @@ function HomePage() {
             <br />
             HAVE FUN
           </h1>
-          <div class="group-1">
-            <div class="overlap-group">
-              <div class="login">LOGIN</div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
   );
 }
 
-export default HomePage;
+export default Home;
 
 // return (
 //   <div className="App">
@@ -37,3 +32,9 @@ export default HomePage;
 //     </header>
 //   </div>
 // );
+
+// <div class="group-1">
+//             <div class="overlap-group">
+//               <div class="login">LOGIN</div>
+//             </div>
+//           </div>

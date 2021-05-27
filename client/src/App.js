@@ -1,5 +1,7 @@
-import HomePage from "./components/HomePage";
 import React from "react";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
+
 import "./App.css";
 
 function App() {
@@ -11,20 +13,7 @@ function App() {
       .then((data) => setData(data.message));
   }, []);
 
-  return (
-    <div>
-      <HomePage />
-    </div>
-  );
+  return <LoginPage />;
 }
 
 export default App;
-
-// return (
-//   <div className="App">
-//     <header className="App-header">
-//       <img src={logo} className="App-logo" alt="logo" />
-//       <p>{!data ? "Loading..." : data}</p>
-//     </header>
-//   </div>
-// );
