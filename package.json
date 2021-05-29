@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/index.js",
+    "start": "node server/index.js && nodemon app.js",
     "build": "cd client && npm install && npm run build"
   },
   "keywords": [],
@@ -13,6 +13,7 @@
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "express": "^4.17.1",
+    "nodemon": "^2.0.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },

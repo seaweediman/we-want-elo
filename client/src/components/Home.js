@@ -1,4 +1,5 @@
-function Home() {
+function Home(props) {
+  const { name } = props;
   return (
     <div class="container-center-horizontal">
       <div class="homepage screen">
@@ -14,7 +15,7 @@ function Home() {
             WIN MORE
             <br />
             <br />
-            HAVE FUN
+            HAVE FUN, {name}
           </h1>
         </div>
       </div>

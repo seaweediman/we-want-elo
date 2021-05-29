@@ -1,19 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 
 import "./App.css";
 
 function App() {
-  const [data, setData] = React.useState(null);
+  const [name, setName] = useState();
 
-  React.useEffect(() => {
-    fetch("/api")
+  useEffect(() => {
+    fetch("/user")
       .then((res) => res.json())
-      .then((data) => setData(data.message));
+      .then((account) => setName(account.name));
   }, []);
 
-  return <LoginPage />;
+  return <HomePage name={name} />;
 }
 
 export default App;

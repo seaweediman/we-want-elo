@@ -1,9 +1,10 @@
 import Home from "../components/Home";
 
-function HomePage() {
+function HomePage(props) {
+  const { name } = props;
   return (
     <div>
-      <Home />
+      <Home name={name} />
     </div>
   );
 }
