@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/index.js && nodemon app.js",
+    "start": "nodemon server/index.js",
     "build": "cd client && npm install && npm run build"
   },
   "keywords": [],
@@ -12,7 +12,9 @@
   "license": "ISC",
   "dependencies": {
     "@material-ui/core": "^4.11.4",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "mongoose": "^5.12.12",
     "nodemon": "^2.0.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
