@@ -4,10 +4,12 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
 require("dotenv/config");
+const Listing = require("./models/listing");
 
 //Middleware
 app.use(express.static(path.resolve(__dirname, "../client/build")));
 app.use(express.json());
+app.use(cors());
 
 //Routes
 app.get("/api", (req, res) => {
@@ -23,10 +25,14 @@ app.get("/user", (req, res) => {
 });
 
 app.get("/make-listing", (req, res) => {
+  const game = req.body.game;
+  const rank = req.body.rank;
+  const desc = req.body.desc;
+
   const listing = new Listing({
-    game: "Apex",
-    rank: "Diamond 3",
-    desc: "Help me reach Masters",
+    game: game,
+    rank: rank,
+    desc: desc,
   });
 
   listing
