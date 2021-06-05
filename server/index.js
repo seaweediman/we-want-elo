@@ -26,13 +26,10 @@ app.get("*", (req, res) => {
 });
 
 //Connect to DB
-mongoose.connect(
-  "mongodb+srv://testboy:venus@ggez.ub7on.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-);
+mongoose.connect(process.env.DB_CONNECT, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 mongoose.connection.on("connected", () => {
   console.log("Mongoose is connected!!!");
