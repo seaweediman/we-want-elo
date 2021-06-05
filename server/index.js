@@ -5,6 +5,7 @@ const app = express();
 const mongoose = require("mongoose");
 require("dotenv/config");
 const Listing = require("./models/listing");
+const cors = require("cors");
 
 //Middleware
 app.use(express.static(path.resolve(__dirname, "../client/build")));
