@@ -7,6 +7,7 @@ require("dotenv/config");
 
 //Middleware
 app.use(express.static(path.resolve(__dirname, "../client/build")));
+app.use(express.json());
 
 //Routes
 app.get("/api", (req, res) => {
@@ -19,6 +20,33 @@ app.get("/user", (req, res) => {
     name: "zsb",
     picture: "https://www.kumulos.com/wp-content/uploads/2013/10/pikachu-6.png",
   });
+});
+
+app.get("/make-listing", (req, res) => {
+  const listing = new Listing({
+    game: "Apex",
+    rank: "Diamond 3",
+    desc: "Help me reach Masters",
+  });
+
+  listing
+    .save()
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+app.get("/all-listings", (req, res) => {
+  Listing.find()
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 app.get("*", (req, res) => {
