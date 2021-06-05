@@ -16,9 +16,3 @@ function App() {
 }
 
 export default App;
-
-// useEffect(() => {
-//   fetch("/user")
-//     .then((res) => res.json())
-//     .then((account) => setName(account.name));
-// }, []);
