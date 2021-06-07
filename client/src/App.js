@@ -1,18 +1,23 @@
-import React, { useEffect, useState } from "react";
-import HomePage from "./pages/HomePage";
-import axios from "axios";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Navigation, Footer, Home} from "./components";
+import CreateListing from "./pages/CreateListing";
+import createListing from "./pages/CreateListing";
 import LoginPage from "./pages/LoginPage";
-
-import "./App.css";
-
 function App() {
-  const [name, setName] = useState();
-
-  useEffect(() => {
-    axios.get("/user").then((account) => setName(account.data.name));
-  }, []);
-
-  return <HomePage name={name} />;
+  return (
+    <div className="App">
+      <Router>
+        <Navigation />
+        <Switch>
+          <Route path="/" exact component={() => <Home />} />
+          <Route path="/CreateListing" exact component={() => <CreateListing />} />
+          <Route path="/LoginPage" exact component={() => <LoginPage />} />
+        </Switch>
+        <Footer />
+      </Router>
+    </div>
+  );
 }
 
 export default App;

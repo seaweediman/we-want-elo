@@ -8,7 +8,7 @@
 }
 
 :root {
-  --white: rgba(255, 255, 255, 1);
+  --black: rgb(5, 4, 4);
 
   --font-size-s: 50px;
   --font-size-m: 72px;
@@ -24,7 +24,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #0853eb;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -77,7 +77,7 @@
   min-width: 466px;
 }
 .homepage .login {
-  color: var(--white);
+  color: var(--black);
   font-family: var(--font-family-verdana-regular);
   font-size: var(--font-size-s);
   letter-spacing: 0;
@@ -98,7 +98,7 @@
   padding: 47.5px 138.5px;
 }
 .homepage .text-1 {
-  color: var(--white);
+  color: var(--black);
   font-family: var(--font-family-verdana-bold);
   font-size: var(--font-size-m);
   font-weight: 700;

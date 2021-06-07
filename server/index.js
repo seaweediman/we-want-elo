@@ -25,7 +25,7 @@ app.get("/user", (req, res) => {
   });
 });
 
-app.get("/make-listing", (req, res) => {
+app.post("/make-listing", (req, res) => {
   const game = req.body.game;
   const rank = req.body.rank;
   const desc = req.body.desc;
@@ -48,6 +48,7 @@ app.get("/make-listing", (req, res) => {
 
 app.get("/all-listings", (req, res) => {
   Listing.find()
+    .sort({ createdAt: -1 })
     .then((result) => {
       res.send(result);
     })
