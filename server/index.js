@@ -7,6 +7,9 @@ require("dotenv/config");
 const Listing = require("./models/listing");
 const cors = require("cors");
 
+const listingRoute = require("./routes/listings");
+app.use("/listing", listingRoute);
+
 //Middleware
 app.use(express.static(path.resolve(__dirname, "../client/build")));
 app.use(express.json());
