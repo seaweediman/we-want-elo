@@ -25,37 +25,37 @@ app.get("/user", (req, res) => {
   });
 });
 
-app.post("/make-listing", (req, res) => {
-  const game = req.body.game;
-  const rank = req.body.rank;
-  const desc = req.body.desc;
+// app.post("/make-listing", (req, res) => {
+//   const game = req.body.game;
+//   const rank = req.body.rank;
+//   const desc = req.body.desc;
 
-  const listing = new Listing({
-    game: game,
-    rank: rank,
-    desc: desc,
-  });
+//   const listing = new Listing({
+//     game: game,
+//     rank: rank,
+//     desc: desc,
+//   });
 
-  listing
-    .save()
-    .then((result) => {
-      res.send(result);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
+//   listing
+//     .save()
+//     .then((result) => {
+//       res.send(result);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// });
 
-app.get("/all-listings", (req, res) => {
-  Listing.find()
-    .sort({ createdAt: -1 })
-    .then((result) => {
-      res.send(result);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
+// app.get("/all-listings", (req, res) => {
+//   Listing.find()
+//     .sort({ createdAt: -1 })
+//     .then((result) => {
+//       res.send(result);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// });
 
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
