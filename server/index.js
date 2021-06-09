@@ -6,14 +6,13 @@ const mongoose = require("mongoose");
 require("dotenv/config");
 const Listing = require("./models/listing");
 const cors = require("cors");
-
 const listingRoute = require("./routes/listings");
-app.use("/listing", listingRoute);
 
 //Middleware
 app.use(express.static(path.resolve(__dirname, "../client/build")));
 app.use(express.json());
 app.use(cors());
+app.use("/listing", listingRoute);
 
 //Routes
 app.get("/api", (req, res) => {
@@ -28,40 +27,8 @@ app.get("/user", (req, res) => {
   });
 });
 
-// app.post("/make", (req, res) => {
-//   const game = req.body.game;
-//   const rank = req.body.rank;
-//   const desc = req.body.desc;
-
-//   const listing = new Listing({
-//     game: game,
-//     rank: rank,
-//     desc: desc,
-//   });
-
-//   listing
-//     .save()
-//     .then((result) => {
-//       res.send(result);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// });
-
-// app.get("/all", (req, res) => {
-//   Listing.find()
-//     .sort({ createdAt: -1 })
-//     .then((result) => {
-//       res.send(result);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// });
-
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+  res.sendFile(path.resolve(__dirname, "../client/build", "index.html")); // <============ THIS LINE
 });
 
 //Connect to DB
