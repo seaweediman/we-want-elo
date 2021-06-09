@@ -28,7 +28,7 @@ app.get("/user", (req, res) => {
   });
 });
 
-// app.post("/make-listing", (req, res) => {
+// app.post("/make", (req, res) => {
 //   const game = req.body.game;
 //   const rank = req.body.rank;
 //   const desc = req.body.desc;
@@ -49,7 +49,7 @@ app.get("/user", (req, res) => {
 //     });
 // });
 
-// app.get("/all-listings", (req, res) => {
+// app.get("/all", (req, res) => {
 //   Listing.find()
 //     .sort({ createdAt: -1 })
 //     .then((result) => {
