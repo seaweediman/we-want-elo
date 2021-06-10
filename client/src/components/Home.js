@@ -17,7 +17,7 @@ function Home(props) {
             WIN MORE
             <br />
             <br />
-            HAVE FUN, {name}
+            HAVE FUN {name}
           </h1>
         </div>
       </div>

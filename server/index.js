@@ -7,16 +7,61 @@ require("dotenv/config");
 const Listing = require("./models/listing");
 const cors = require("cors");
 const listingRoute = require("./routes/listings");
+const authRoutes = require("./routes/auth");
+const passport = require("passport");
+const SteamStrategy = require("passport-steam").Strategy;
+const util = require("util");
+const session = require("express-session");
+
+passport.serializeUser(function (user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function (obj, done) {
+  done(null, obj);
+});
 
 //Middleware
 app.use(express.static(path.resolve(__dirname, "../client/build")));
 app.use(express.json());
 app.use(cors());
 app.use("/listing", listingRoute);
+app.use("/auth", authRoutes);
+
+passport.use(
+  new SteamStrategy(
+    {
+      returnURL: "http://localhost:3000/auth/steam/return",
+      realm: "http://localhost:3000/",
+      apiKey: "28C78FC7E44A68621694CD3465C0D1E9",
+    },
+    function (identifier, profile, done) {
+      User.findByOpenID({ openId: identifier }, function (err, user) {
+        return done(err, user);
+      });
+    }
+  )
+);
+
+app.use(
+  session({
+    secret: "your secret",
+    name: "name of session id",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Routes
-app.get("/api", (req, res) => {
-  res.json({ message: "Hello from server!" });
+app.get("/", function (req, res) {
+  res.json({ user: req.user });
+});
+
+app.get("/logout", function (req, res) {
+  req.logout();
+  res.redirect("/");
 });
 
 app.get("/user", (req, res) => {

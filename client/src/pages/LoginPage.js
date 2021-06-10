@@ -4,7 +4,9 @@ function LoginPage() {
   return (
     <div>
       <p>Not logged in</p>
-      <button> Sign in with Steam </button>
+      <p>
+        <a href="http://localhost:3001/auth/steam">Sign On with Steam</a>
+      </p>
     </div>
   );
 }
