@@ -36,12 +36,19 @@ function CreateListing() {
   }, []);
 
   const CreateListing = () => {
+    console.log(user.id);
     axios.post("http://localhost:3001/listing", {
+      name: user.displayName,
       game: game,
       rank: rank,
       desc: desc,
-      id: user.id,
+      steamid: user.id,
     });
+  };
+
+  const deleteListing = (id) => {
+    console.log(id);
+    axios.delete(`http://localhost:3001/listing/${id}`);
   };
 
   return (
@@ -88,9 +95,23 @@ function CreateListing() {
       {allListing.map((val, key) => {
         return (
           <div>
+            <h1> Name : {val.name}</h1>
             <h1> Game : {val.game}</h1>
             <h1> Rank : {val.rank}</h1>
             <h1> Description : {val.desc} </h1>
+            <h1> steamID : {val.steamid}</h1>
+            {user !== undefined && user.id === val.steamid ? (
+              <button onClick={() => deleteListing(val._id)}> Delete </button>
+            ) : (
+              ""
+            )}
+            {user !== undefined && user.id !== val.steamid ? (
+              <a href={`steam://friends/add/${val.steamid}`}>
+                <button>Add as Friend</button>
+              </a>
+            ) : (
+              ""
+            )}
             <h1>--------------------------------------</h1>
           </div>
         );

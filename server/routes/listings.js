@@ -3,14 +3,18 @@ const router = express.Router();
 const Listing = require("../models/listing");
 
 router.post("/", async (req, res) => {
+  const name = req.body.name;
   const game = req.body.game;
   const rank = req.body.rank;
   const desc = req.body.desc;
+  const steamid = req.body.steamid;
 
   const listing = new Listing({
+    name: name,
     game: game,
     rank: rank,
     desc: desc,
+    steamid: steamid,
   });
 
   await listing

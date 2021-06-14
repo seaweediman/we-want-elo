@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 
 const listingSchema = new Schema(
   {
+    name: {
+      type: String,
+      required: true,
+    },
     game: {
       type: String,
       required: true,
@@ -15,7 +19,7 @@ const listingSchema = new Schema(
       type: String,
       required: true,
     },
-    id: {
+    steamid: {
       type: String,
       required: true,
     },
