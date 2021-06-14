@@ -1,7 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-function Home(props) {
-  const { name } = props;
+import axios from "axios";
+
+function Home() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    async function fetchUser() {
+      try {
+        const response = await axios.get("http://localhost:3001/user", {
+          withCredentials: true,
+        });
+        console.log(response.data.user);
+        setUser(response.data.user);
+      } catch (e) {
+        console.error(e);
+      }
+    }
+    fetchUser();
+  }, []);
+
   return (
     <div class="container-center-horizontal">
       <div class="homepage screen">
@@ -17,7 +35,13 @@ function Home(props) {
             WIN MORE
             <br />
             <br />
-            HAVE FUN {name}
+            <p>
+              HAVE FUN{" "}
+              {user === null || user === undefined
+                ? "unknown user"
+                : user.displayName}
+            </p>
+            {/* <button onClick={callUser}> Call /user </button> */}
           </h1>
         </div>
       </div>

@@ -10,6 +10,7 @@ function CreateListing() {
   const [game, setGame] = useState("");
   const [rank, setRank] = useState("");
   const [desc, setDesc] = useState("");
+  const [user, setUser] = useState(null);
 
   const [allListing, setAllListing] = useState([]);
 
@@ -19,11 +20,27 @@ function CreateListing() {
     });
   });
 
+  useEffect(() => {
+    async function fetchUser() {
+      try {
+        const response = await axios.get("http://localhost:3001/user", {
+          withCredentials: true,
+        });
+        console.log(response.data.user);
+        setUser(response.data.user);
+      } catch (e) {
+        console.error(e);
+      }
+    }
+    fetchUser();
+  }, []);
+
   const CreateListing = () => {
     axios.post("http://localhost:3001/listing", {
       game: game,
       rank: rank,
       desc: desc,
+      id: user.id,
     });
   };
 
