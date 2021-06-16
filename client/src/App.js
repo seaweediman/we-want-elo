@@ -1,3 +1,4 @@
+import './App.css';
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Navigation, Footer, Home } from "./components";
@@ -10,11 +11,7 @@ function App() {
         <Navigation />
         <Switch>
           <Route path="/" exact component={() => <Home />} />
-          <Route
-            path="/CreateListing"
-            exact
-            component={() => <CreateListing />}
-          />
+          <Route path="/CreateListing" exact component={() => <CreateListing />} />
           <Route path="/LoginPage" exact component={() => <LoginPage />} />
         </Switch>
         <Footer />
