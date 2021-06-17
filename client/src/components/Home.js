@@ -41,7 +41,6 @@ function Home() {
                 ? "unknown user"
                 : user.displayName}
             </p>
-            {/* <button onClick={callUser}> Call /user </button> */}
           </h1>
         </div>
       </div>
