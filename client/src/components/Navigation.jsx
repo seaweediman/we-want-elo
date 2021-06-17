@@ -1,4 +1,4 @@
-
+import "./General.css"
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 
@@ -6,13 +6,14 @@ function Navigation(props) {
   return (
     <div className="navigation">
       <nav class="navbar navbar-expand navbar-dark bg-dark">
-        <div class="container">
-          <Link class="navbar-brand" to="/">
-            WE WANT ELO
-          </Link>
-
-          <div>
-            <ul class="navbar-nav ml-auto">
+          <div className="title">
+            <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="/">WE WANT ELO</a>
+            </nav>
+          </div>
+          <div className="navcontainer">
+            <div className="navhome">
+              <button class="homebtn">
               <li
                 class={`nav-item  ${
                   props.location.pathname === "/" ? "active" : ""
@@ -20,18 +21,26 @@ function Navigation(props) {
               >
                 <Link class="nav-link" to="/">
                   Home
-                  <span class="sr-only">(current)</span>
                 </Link>
               </li>
+              </button>
+              </div>
+
+              <div className="navcreatelisting">
+              <button class="createlistingnavbtn">
               <li
                 class={`nav-item  ${
                   props.location.pathname === "/CreateListing" ? "active" : ""
                 }`}
               >
                 <Link class="nav-link" to="/CreateListing">
-                  CreateListing
+                  Create listing
                 </Link>
               </li>
+              </button>
+              </div>
+              <div className="navlogin">
+              <button class="loginbtn">
               <li
                 class={`nav-item  ${
                   props.location.pathname === "/LoginPage" ? "active" : ""
@@ -41,8 +50,9 @@ function Navigation(props) {
                   Login
                 </Link>
               </li>
-            </ul>
-          </div>
+              </button>
+              </div>
+
         </div>
       </nav>
     </div>

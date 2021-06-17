@@ -1,0 +1,145 @@
+/* but1 represents buttons for 'add friend' and 'delete listing' */
+
+.deletebtn {
+    font-size: 20px;
+    font-family: 'VT323', monospace;
+    background-color: darkorange;
+    border: none;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    transition-duration: 0.5s;
+	transition-property: box-shadow;
+    transform: translateY(40px);
+    cursor: pointer;
+}
+
+.deletebtn:hover {
+    color: blanchedalmond;
+    background: blue;
+}
+
+.addfriendbtn {
+    font-size: 20px;
+    font-family: 'VT323', monospace;
+    background-color: rgb(47, 255, 116);
+    border: none;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    transition-duration: 0.5s;
+	transition-property: box-shadow;
+    transform: translateY(40px);
+    cursor: pointer;
+}
+
+.addfriendbtn:hover {
+    color: blanchedalmond;
+    background: blue;
+}
+
+
+.createlistingbtn {
+    color: beige;
+    background-color: #131812;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    border: solid;
+    border-width: thick;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: width 2s, height 2s, transform 1s;
+    transform: translate(10px,50px);
+
+    cursor: pointer;
+}
+.createlistingbtn:hover {
+    /* width: 400px; */
+    transform:translate(20%,100%);
+    color: blue;
+    background: greenyellow;
+}
+
+
+.header {
+    color: white;
+    font-weight:lighter;
+    font-family: 'VT323', monospace;
+    font-size: 60px;
+    display: flex;
+    justify-content: center;
+    transform: translateY(40px);
+    
+}
+
+.listingheader {
+    color: lightpink;
+    font-size: 50px;
+    font-family: 'VT323', monospace;
+    transform:translateX(500px);
+}
+
+.listingvalue {
+    color: lightseagreen;
+    font-family: 'VT323', monospace;
+    font-size: 50px;
+    text-align: center;
+    transform:translate(300px,-88px);
+    transform-origin: rignt;
+
+}
+
+
+.boxTitle {
+    font-family: 'Righteous', cursive;
+    color: white;
+    size: 50px;
+}
+input {
+    color: teal;
+}
+
+::placeholder {
+    font-weight:bolder ;
+    font-family: 'VT323', monospace;
+    color:white;
+    opacity: 0.5;
+    /* text-align: center; */
+}
+input[type="text"], textarea {
+    color: yellow;
+    font-family: 'VT323', monospace;
+    background-color : firebrick; 
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid white;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.boxes {
+    text-align: justify;
+    /* transform: translate(0px, 0px); */
+    padding: 100px 50px;
+    background: black;
+    display: flexbox;
+    flex-direction:row;
+
+}
+
+.loginStatus {
+    color: white;
+}
+
+

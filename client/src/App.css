@@ -1,14 +1,15 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
+  background: #131812;
 }
-
+/* 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
 :root {
-  --black: rgb(5, 4, 4);
+    --black: rgb(5, 4, 4);
 
   --font-size-s: 50px;
   --font-size-m: 72px;
@@ -140,4 +141,4 @@
 .screen a {
   text-decoration: none;
   display: contents;
-}
+} */
