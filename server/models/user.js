@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  id: {
+  steamid: {
     type: String,
     required: true,
   },
@@ -10,11 +10,18 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  desc: {
+  bio: {
     type: String,
     required: true,
   },
+  language: {
+    type: String,
+    required: true,
+  },
+  rating: {
+    type: String,
+  },
 });
 
-const listing = mongoose.model("User", userSchema);
-module.exports = listing;
+const user = mongoose.model("User", userSchema);
+module.exports = user;

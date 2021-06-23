@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Listing = require("../models/listing");
+const User = require("../models/user");
 
 router.post("/", async (req, res) => {
   const name = req.body.name;
@@ -9,7 +9,7 @@ router.post("/", async (req, res) => {
   const desc = req.body.desc;
   const steamid = req.body.steamid;
 
-  const listing = new Listing({
+  const user = new User({
     name: name,
     game: game,
     rank: rank,
@@ -17,19 +17,8 @@ router.post("/", async (req, res) => {
     steamid: steamid,
   });
 
-  await listing
+  await user
     .save()
-    .then((result) => {
-      res.send(result);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-
-router.get("/", async (req, res) => {
-  await Listing.find()
-    .sort({ createdAt: -1 })
     .then((result) => {
       res.send(result);
     })
@@ -41,7 +30,7 @@ router.get("/", async (req, res) => {
 // *************************************************************
 router.get("/:id", async (req, res) => {
   //For listings of that specific profile
-  await Listing.find({ steamid: req.params.id })
+  await User.find({ steamid: req.params.id })
     .sort({ createdAt: -1 })
     .then((result) => {
       res.send(result);
@@ -60,11 +49,40 @@ router.get("/:id", async (req, res) => {
 
 // *************************************************************
 
-router.delete("/:id", async (req, res) => {
+router.post("/bio/:id", async (req, res) => {
+  //Update Bio
   try {
-    const removedPost = await Listing.deleteOne({ _id: req.params.id });
-    console.log(req.params.id);
-    res.json(removedPost);
+    const updatedBio = await Listing.updateOne(
+      { steamid: req.params.id },
+      { $set: { bio: req.body.bio } }
+    );
+    res.json(updatedBio);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
+router.post("/lang/:id", async (req, res) => {
+  //Update language
+  try {
+    const updatedLang = await Listing.updateOne(
+      { steamid: req.params.id },
+      { $set: { language: req.body.language } }
+    );
+    res.json(updatedLang);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
+router.post("/region/:id", async (req, res) => {
+  //Update region
+  try {
+    const updatedRegion = await Listing.updateOne(
+      { steamid: req.params.id },
+      { $set: { region: req.body.region } }
+    );
+    res.json(updatedRegion);
   } catch (err) {
     res.json({ message: err });
   }

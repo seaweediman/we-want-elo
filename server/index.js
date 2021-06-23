@@ -10,6 +10,7 @@ require("dotenv/config");
 const Listing = require("./models/listing");
 const cors = require("cors");
 const listingRoute = require("./routes/listings");
+const commentRoute = require("./routes/comments");
 const SteamStrategy = require("passport-steam").Strategy;
 const util = require("util");
 
@@ -42,10 +43,8 @@ passport.use(
     }
   )
 );
-
+//
 //Middleware
-//app.use(cors());
-
 app.use(
   cors({
     origin: "http://localhost:3000", // allow to server to accept request from different origin
@@ -70,6 +69,7 @@ app.use(passport.session());
 app.use(express.static(path.resolve(__dirname, "../client/build")));
 
 app.use("/listing", listingRoute);
+app.use("/comment", commentRoute);
 
 //Routes
 app.get("/user", function (req, res) {
@@ -79,14 +79,6 @@ app.get("/user", function (req, res) {
 app.get("/logout", function (req, res) {
   req.logout();
   res.redirect("/");
-});
-
-app.get("/fakeuser", (req, res) => {
-  res.json({
-    id: 123,
-    name: "zsb",
-    picture: "https://www.kumulos.com/wp-content/uploads/2013/10/pikachu-6.png",
-  });
 });
 
 app.get(
