@@ -6,20 +6,12 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  country: {
-    type: String,
-    required: true,
-  },
   bio: {
     type: String,
     required: true,
   },
-  language: {
-    type: String,
-    required: true,
-  },
   rating: {
-    type: String,
+    type: Number,
   },
 });
 

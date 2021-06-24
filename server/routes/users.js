@@ -3,18 +3,14 @@ const router = express.Router();
 const User = require("../models/user");
 
 router.post("/", async (req, res) => {
-  const name = req.body.name;
-  const game = req.body.game;
-  const rank = req.body.rank;
-  const desc = req.body.desc;
   const steamid = req.body.steamid;
+  const bio = req.body.bio;
+  const rating = req.body.rating;
 
   const user = new User({
-    name: name,
-    game: game,
-    rank: rank,
-    desc: desc,
     steamid: steamid,
+    bio: bio,
+    rating: rating,
   });
 
   await user

@@ -7,11 +7,12 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
 require("dotenv/config");
-const Listing = require("./models/listing");
 const cors = require("cors");
 const listingRoute = require("./routes/listings");
 const commentRoute = require("./routes/comments");
+const userRoute = require("./routes/users");
 const SteamStrategy = require("passport-steam").Strategy;
+const User = require("./models/user");
 const util = require("util");
 
 passport.serializeUser(function (user, done) {
@@ -32,12 +33,30 @@ passport.use(
 
     function (identifier, profile, done) {
       // asynchronous verification, for effect...
-      process.nextTick(function () {
+      process.nextTick(async function () {
         // To keep the example simple, the user's Steam profile is returned to
         // represent the logged-in user.  In a typical application, you would want
         // to associate the Steam account with a user record in your database,
         // and return that user instead.
         profile.identifier = identifier;
+        let user = await User.findOne({ steamid: profile.id });
+        if (!user) {
+          console.log("NEW ACCOUNT");
+          const newUser = new User({
+            steamid: profile.id,
+            bio: "No information given.",
+            rating: 0.0,
+          });
+
+          await newUser
+            .save()
+            .then((result) => {
+              res.send(result);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }
         return done(null, profile);
       });
     }
@@ -70,6 +89,7 @@ app.use(express.static(path.resolve(__dirname, "../client/build")));
 
 app.use("/listing", listingRoute);
 app.use("/comment", commentRoute);
+app.use("/user", userRoute);
 
 //Routes
 app.get("/user", function (req, res) {
