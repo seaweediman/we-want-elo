@@ -1,0 +1,144 @@
+.App {
+  /* text-align: center; */
+  background: #131812;
+}
+/* 
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+:root {
+    --black: rgb(5, 4, 4);
+
+  --font-size-s: 50px;
+  --font-size-m: 72px;
+
+  --font-family-verdana-bold: "Verdana-Bold";
+  --font-family-verdana-regular: "Verdana-Regular";
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #0853eb;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.homepage {
+  align-items: flex-start;
+  background-color: #2a2828;
+  display: flex;
+  overflow: hidden;
+  width: 1920px;
+}
+.homepage .flex-col {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-left: 259px;
+  margin-top: 323px;
+  min-height: 647px;
+  width: 852px;
+}
+.homepage .gamer {
+  height: 1080px;
+  object-fit: cover;
+  width: 811px;
+}
+.homepage .group-1 {
+  align-items: flex-start;
+  display: flex;
+  height: 158px;
+  justify-content: center;
+  margin-top: 52px;
+  min-width: 466px;
+}
+.homepage .login {
+  color: var(--black);
+  font-family: var(--font-family-verdana-regular);
+  font-size: var(--font-size-s);
+  letter-spacing: 0;
+  line-height: 50px;
+  min-height: 62px;
+  min-width: 180px;
+  width: 180px;
+}
+.homepage .overlap-group {
+  align-items: flex-end;
+  background-image: url(https://anima-uploads.s3.amazonaws.com/projects/60adfd5bf3283a74a338dba5/releases/60ae0079c8124c55f90dc022/img/path-1@1x.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  display: flex;
+  height: 159px;
+  margin-top: -0.5px;
+  min-width: 467px;
+  padding: 47.5px 138.5px;
+}
+.homepage .text-1 {
+  color: var(--black);
+  font-family: var(--font-family-verdana-bold);
+  font-size: var(--font-size-m);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 72px;
+  min-height: 437px;
+  width: 852px;
+}
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@font-face {
+  font-family: "Verdana-Bold";
+  font-style: normal;
+  font-weight: 700;
+  src: url("https://fonts.animaapp.com/Verdana-Bold") format("truetype");
+}
+
+@font-face {
+  font-family: "Verdana-Regular";
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.animaapp.com/Verdana-Regular") format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+}
+.container-center-horizontal {
+  pointer-events: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+.container-center-horizontal > * {
+  pointer-events: auto;
+  flex-shrink: 0;
+}
+.screen a {
+  text-decoration: none;
+  display: contents;
+} */

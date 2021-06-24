@@ -1,0 +1,239 @@
+/* but1 represents buttons for 'add friend' and 'delete listing' */
+
+.deletebtn {
+    font-size: 20px;
+    font-family: 'VT323', monospace;
+    background-color: darkorange;
+    border: none;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    transition-duration: 0.5s;
+	transition-property: box-shadow;
+    transform: translateY(40px);
+    cursor: pointer;
+}
+
+.deletebtn:hover {
+    color: blanchedalmond;
+    background: blue;
+}
+
+.addfriendbtn {
+    font-size: 20px;
+    font-family: 'VT323', monospace;
+    background-color: rgb(47, 255, 116);
+    border: none;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    transition-duration: 0.5s;
+	transition-property: box-shadow;
+    transform: translateY(40px);
+    cursor: pointer;
+}
+
+.addfriendbtn:hover {
+    color: blanchedalmond;
+    background: blue;
+}
+
+
+.createlistingbtn {
+    color: beige;
+    background-color: #131812;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    border: solid;
+    border-width: thick;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: width 2s, height 2s, transform 1s;
+    transform: translate(10px,50px);
+
+    cursor: pointer;
+}
+.createlistingbtn:hover {
+    /* width: 400px; */
+    transform:translate(20%,100%);
+    color: blue;
+    background: greenyellow;
+}
+
+.createlistingheader{
+    color: beige;
+    font-family: 'VT323', monospace;
+    font-size: 50px;
+    display:flexbox;
+    text-align: center;
+    transform: translateY(100px);
+}
+
+
+.header {
+    color: white;
+
+
+    border-radius: 10px;
+    font-weight:lighter;
+    font-family: 'VT323', monospace;
+    font-size: 60px;
+    margin: auto;
+    width: 75%;
+    padding: 10px;
+    text-align: center;
+    /* display: inline-block;
+    position: relative;
+    padding: 5px 10px; */
+}
+
+
+.listingsheader {
+    color: white;
+    border:double;
+    border-color: lime;
+    border-radius: 10px;
+    font-weight:lighter;
+    font-family: 'VT323', monospace;
+    font-size: 60px;
+    margin: auto;
+    width: 75%;
+    padding: 10px;
+    text-align: center;
+    /* display: inline-block;
+    position: relative;
+    padding: 5px 10px; */
+}
+
+/* .header a {
+    justify-content: center;
+    text-align: center;
+    text-decoration: underline;
+} */
+
+.listingheader {
+    color: lightpink;
+    font-size: 50px;
+    font-family: 'VT323', monospace;
+    transform:translateX(500px);
+}
+
+.listingvalue {
+    color: lightseagreen;
+    font-family: 'VT323', monospace;
+    font-size: 50px;
+    text-align: center;
+    transform:translate(300px,-88px);
+    transform-origin: rignt;
+
+}
+
+.dropdownGame {
+    font-family: 'Righteous', cursive;
+    background-color: firebrick;
+    color: white;
+}
+
+.dropdownGame:hover {
+    cursor: pointer;
+}
+
+.boxTitle {
+    font-family: 'Righteous', cursive;
+    color: white;
+    size: 50px;
+}
+input {
+    color: teal;
+}
+
+::placeholder {
+    /* font-weight:bolder ; */
+    /* font-family: 'VT323', monospace; */
+    font-family: 'Righteous', cursive;
+    /* font-size: 10px; */
+    color:white;
+    /* opacity: 0.8; */
+    /* text-align: center; */
+}
+input[type="text"], textarea {
+    color: yellow;
+    /* font-family: 'VT323', monospace; */
+    font-family: 'Righteous', cursive;
+    background-color : firebrick; 
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid white;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.boxes {
+    /* text-align: justify; */
+    /* transform: translate(0px, 0px); */
+    padding: 150px 50px;
+    background-color: #131812;
+    /* display: flexbox; */
+    /* flex-direction:row; */
+
+}
+
+.boxFilter {
+    color:white;
+    background: firebrick;
+    font-family: 'Righteous', cursive;
+}
+
+.loginStatus {
+    color: white;
+    font-family: 'Righteous', cursive;
+    text-align: center;
+    font-size: 30px;
+}
+
+.loginStatus a{
+    color: greenyellow;
+    text-decoration: none;
+    animation: glow 1s ease-in-out infinite alternate;
+    /* transition-duration: 1s; */
+}
+
+
+.loginStatus a:hover{
+    color: green;
+}
+
+
+.Profile {
+    color: white;
+    font-family: 'Righteous', cursive;
+    text-align: center;
+    font-size: 30px;
+}
+
+.Profile a{
+    color: greenyellow;
+    text-decoration: none;
+    animation: glow 1s ease-in-out infinite alternate;
+    transition-duration: 1s;
+}
+
+
+.Profile a:hover{
+    color: pink;
+}
+
+
+
+
