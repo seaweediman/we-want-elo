@@ -195,6 +195,25 @@ function ProfilePage({ match }) {
             <h2 class="listingvalue">{val.game}</h2>
             <h1 class="listingheader"> Rank : </h1>
             <h2 class="listingvalue">{val.rank}</h2>
+            {val.game === "CS:GO" ? (
+              <div>
+                {" "}
+                <h1 class="listingheader"> Playstyle : </h1>
+                <h2 class="listingvalue">{val.playstyle}</h2>
+                <h1 class="listingheader"> Role : </h1>
+                <h2 class="listingvalue">{val.role}</h2>
+              </div>
+            ) : (
+              <div>
+                {" "}
+                <h1 class="listingheader"> Playstyle : </h1>
+                <h2 class="listingvalue">{val.playstyle}</h2>
+                <h1 class="listingheader"> Legends : </h1>
+                <h2 class="listingvalue">{val.legend1}</h2>
+                <h2 class="listingvalue">{val.legend2}</h2>
+                <h2 class="listingvalue">{val.legend3}</h2>
+              </div>
+            )}
             <h1 class="listingheader"> Description : </h1>
             <h2 class="listingvalue">{val.desc} </h2>
             {user !== undefined && user.id === val.steamid ? (
