@@ -11,6 +11,7 @@ function Home() {
         const response = await axios.get("http://localhost:3001/user", {
           withCredentials: true,
         });
+        console.log(response.data.user);
         setUser(response.data.user);
       } catch (e) {
         console.error(e);
@@ -46,6 +47,7 @@ function Home() {
         <div className="username">
           {user === null || user === undefined ? "" : user.displayName}
         </div>
+        {/* <button onClick={callUser}> Call /user </button> */}
       </h1>
     </div>
   );

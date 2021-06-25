@@ -44,8 +44,9 @@ passport.use(
           console.log("NEW ACCOUNT");
           const newUser = new User({
             steamid: profile.id,
+            steamprofile: profile,
             bio: "No information given.",
-            rating: 0.0,
+            rating: 0,
           });
 
           await newUser
@@ -62,8 +63,9 @@ passport.use(
     }
   )
 );
-//
+
 //Middleware
+
 app.use(
   cors({
     origin: "http://localhost:3000", // allow to server to accept request from different origin
@@ -98,7 +100,7 @@ app.get("/user", function (req, res) {
 
 app.get("/logout", function (req, res) {
   req.logout();
-  res.redirect("/");
+  res.redirect("http://localhost:3000/");
 });
 
 app.get(

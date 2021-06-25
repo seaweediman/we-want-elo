@@ -15,6 +15,10 @@ const listingSchema = new Schema(
       type: String,
       required: true,
     },
+    rankgroup: {
+      type: String,
+      required: true,
+    },
     desc: {
       type: String,
       required: true,
@@ -22,6 +26,22 @@ const listingSchema = new Schema(
     steamid: {
       type: String,
       required: true,
+    },
+    playstyle: {
+      type: String,
+      required: true,
+    },
+    legend1: {
+      type: String,
+    },
+    legend2: {
+      type: String,
+    },
+    legend3: {
+      type: String,
+    },
+    role: {
+      type: String,
     },
   },
   { timestamps: true }

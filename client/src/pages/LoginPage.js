@@ -1,25 +1,35 @@
 import "./Pages.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+// '../components/Home.js';
 
 function LoginPage() {
-  return (
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    async function fetchUser() {
+      try {
+        const response = await axios.get("http://localhost:3001/user", {
+          withCredentials: true,
+        });
+        console.log(response.data.user);
+        setUser(response.data.user);
+      } catch (e) {
+        console.error(e);
+      }
+    }
+    fetchUser();
+  }, []);
+
+  return user === null || user === undefined ? (
     <div class="loginStatus">
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
       <br />
       <br />
       <br />
       <br />
       <p>Status: Not logged in</p>
       <p>
+        <a href="http://localhost:3001/auth/steam">Sign in with Steam</a>
         <br />
         <br />
         <br />
@@ -30,17 +40,29 @@ function LoginPage() {
         <br />
         <br />
         <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-
-        <a href="http://localhost:3001/auth/steam">Sign On with Steam</a>
       </p>
+    </div>
+  ) : (
+    <div class="loginStatus">
+      <br />
+      <br />
+      <br />
+      <br />
+      <p>
+        <a href="http://localhost:3001/logout">Logout</a>
+      </p>
+      {/* <p>You're logged in, {user.displayName}</p> */}
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 }

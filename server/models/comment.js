@@ -7,12 +7,20 @@ const commentSchema = new Schema(
       type: String,
       required: true,
     },
+    commentername: {
+      type: String,
+      required: true,
+    },
     commenterid: {
       type: String,
       required: true,
     },
     profileid: {
       type: String,
+      required: true,
+    },
+    rating: {
+      type: Number,
       required: true,
     },
   },
