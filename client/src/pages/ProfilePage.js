@@ -207,10 +207,13 @@ function ProfilePage({ match }) {
         {allReviews.map((val, key) => {
           return (
             <div>
-              <h1 class="listingheader"> {val.commentername} says : </h1>
-              <h2 class="listingvalue">{val.desc}</h2>
-              <h2 class="listingheader">And gave a rating of: </h2>
-              <h2 class="listingvalue">{val.rating}</h2>
+              <header class="ReviewContents">
+                <header class="ReviewLineHeader">
+                  Review by {val.commentername}:
+                </header>
+                <header class="ReviewLine">Rating: {val.rating}/5</header>
+                <header class="ReviewLine">Description: {val.desc}</header>
+              </header>
             </div>
           );
         })}
