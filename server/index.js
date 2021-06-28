@@ -28,7 +28,7 @@ passport.use(
     {
       returnURL: "http://localhost:3001/auth/steam/return",
       realm: "http://localhost:3001/",
-      apiKey: "28C78FC7E44A68621694CD3465C0D1E9",
+      apiKey: "A5F368B4E61612A7C2A588F8017E88E4",
     },
 
     function (identifier, profile, done) {

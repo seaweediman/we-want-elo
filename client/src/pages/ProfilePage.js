@@ -27,7 +27,7 @@ function ProfilePage({ match }) {
       .then((response) => {
         setAllReviews(response.data);
       });
-  });
+  }, []);
 
   useEffect(() => {
     async function fetchOwner() {
@@ -235,20 +235,6 @@ function ProfilePage({ match }) {
           </div>
         );
       })}
-      <p>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-      </p>
     </div>
   );
 }
