@@ -29,7 +29,9 @@ function LoginPage() {
       <br />
       <p>Status: Not logged in</p>
       <p>
-        <a href="http://localhost:3001/auth/steam">Sign in with Steam</a>
+        <a href="https://we-want-elo.herokuapp.com/auth/steam">
+          Sign in with Steam
+        </a>
         <br />
         <br />
         <br />
@@ -49,7 +51,7 @@ function LoginPage() {
       <br />
       <br />
       <p>
-        <a href="http://localhost:3001/logout">Logout</a>
+        <a href="https://we-want-elo.herokuapp.com/logout">Logout</a>
       </p>
       {/* <p>You're logged in, {user.displayName}</p> */}
       <br />
