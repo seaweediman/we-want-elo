@@ -18,7 +18,7 @@ function CreateListing() {
   const [searchLegend, setSearchLegend] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:3001/listing").then((response) => {
+    axios.get("/listing").then((response) => {
       setAllListing(response.data);
     });
   }, []);
@@ -26,7 +26,7 @@ function CreateListing() {
   useEffect(() => {
     async function fetchAllUser() {
       try {
-        const response = await axios.get("http://localhost:3001/users/", {
+        const response = await axios.get("/users/", {
           withCredentials: true,
         });
         await setAllUser(response.data);
@@ -40,7 +40,7 @@ function CreateListing() {
   useEffect(() => {
     async function fetchUser() {
       try {
-        const response = await axios.get("http://localhost:3001/user", {
+        const response = await axios.get("/user", {
           withCredentials: true,
         });
         setUser(response.data.user);
@@ -52,7 +52,7 @@ function CreateListing() {
   }, []);
 
   const deleteListing = (id) => {
-    axios.delete(`http://localhost:3001/listing/${id}`);
+    axios.delete(`/listing/${id}`);
   };
 
   const filterListings = (val) => {
