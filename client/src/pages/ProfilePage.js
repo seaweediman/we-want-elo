@@ -50,6 +50,7 @@ function ProfilePage({ match }) {
         const response = await axios.get("/user", {
           withCredentials: true,
         });
+        console.log(response.data.user);
         setUser(response.data.user);
       } catch (e) {
         console.error(e);
