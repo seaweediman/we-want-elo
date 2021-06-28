@@ -166,13 +166,18 @@ function ProfilePage({ match }) {
         ) : owner.steamid === user.id ? (
           ""
         ) : addComment ? (
-          <div>
+          <div className="RatingDescriptionBox">
             <input
+              type="text"
+              rows="8"
+              cols="140"
+              placeholder="About yourself..."
               onChange={(event) => {
                 setNewComment(event.target.value);
               }}
             ></input>{" "}
             <select
+              className="RatingOptionBox"
               onChange={(event) => {
                 setNewRating(event.target.value);
               }}
@@ -183,10 +188,16 @@ function ProfilePage({ match }) {
               <option value="4"> 4 </option>
               <option value="5"> 5 </option>
             </select>
-            <button onClick={() => submitComment()}>Add Review</button>
+            <div className="AddReviewButton1">
+              <button onClick={() => submitComment()}>Add Review</button>
+            </div>
           </div>
         ) : (
-          <button onClick={() => setAddComment(true)}>Add Review?</button>
+          <div className="AddReviewButton2">
+            <button className="Reviewbtn2" onClick={() => setAddComment(true)}>
+              Add Review
+            </button>
+          </div>
         )}
         {allReviews.map((val, key) => {
           return (

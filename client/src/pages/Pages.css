@@ -2,7 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Righteous&family=VT323&family=Press+Start+2P&family=Sigmar+One&family=Londrina+Shadow&family=ZCOOL+QingKe+HuangYou&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display&display=swap'); */
 
-
 /* but1 represents buttons for 'add friend' and 'delete listing' */
 
 .deletebtn {
@@ -72,8 +71,6 @@
   color: darkturquoise;
   border-color: #b957ce;
   background-color: rgb(0, 110, 255);
-
-
 }
 
 .createlistingheader {
@@ -93,8 +90,6 @@
   /* display: flexbox; */
   text-align: center;
   transform: translateY(100px);
-
-
 }
 
 .header {
@@ -124,12 +119,10 @@
 }
 
 .listingvalue {
-
   color: hotpink;
   font-size: 60px;
   font-family: "VT323", monospace;
 }
-
 
 .listingsheader {
   color: rgb(0, 110, 255);
@@ -168,11 +161,34 @@ mark.right {
   word-spacing: 2px;
   display: flex;
   flex-direction: row;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
 }
 
-.nav-link {
-  text-decoration: wavy yellow;
+.ReviewLineHeader {
+  color: #b16eb5;
+  font-size: 50px;
+  font-family: "VT323", monospace;
+  letter-spacing: 3px;
+  word-spacing: 2px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+}
+
+.ReviewLine {
+  color: #93c8c4;
+  font-size: 30px;
+  font-family: "VT323", monospace;
+  letter-spacing: 3px;
+  word-spacing: 2px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.ReviewContents {
+  padding: 40px 40px;
 }
 
 /* Look of each listing */
@@ -190,9 +206,8 @@ mark.right {
 }
 
 .name {
-font-size: 50px;
+  font-size: 50px;
 }
-
 
 .dropdownGame {
   font-family: "Righteous", cursive;
@@ -291,32 +306,33 @@ select {
   display: flex;
   justify-content: center;
   text-shadow: 3px 2px 0px blueviolet;
-  box-shadow: 3px 2px 0px rgb(0, 110, 255), inset 3px 2px 0px rgb(0, 110, 255);;
-
-
+  box-shadow: 3px 2px 0px rgb(0, 110, 255), inset 3px 2px 0px rgb(0, 110, 255);
 }
 
-.ProfileContents{
-  border:  double rgb(0, 110, 255);
+.ProfileContents {
+  border: double rgb(0, 110, 255);
   border-radius: 20px;
   border-width: 13px;
-  margin: 3%; 
-  box-shadow: 0px 0px 10px #b957ce,inset 0px 0px 10px #b957ce;
+  margin: 3%;
+  box-shadow: 0px 0px 10px #b957ce, inset 0px 0px 10px #b957ce;
   /* background-color: black; */
 }
-
 
 .BioTag {
   /* color: rgb(19, 241, 19); */
   /* color: orangered; */
   color: #131812;
-  text-shadow: 0px 0px 6px rgb(0, 110, 255),0px 0px 6px rgb(0, 110, 255),0px 0px 6px #b957ce, 0px 0px 3px #b957ce, 0px 0px 3px #b957ce, 0px 0px 3px #b957ce, 0px 0px 3px #b957ce, 0px 0px 3px #b957ce, 0px 0px 3px #b957ce,0px 0px 3px #b957ce,0px 0px 3px #b957ce,0px 0px 3px #b957ce,0px 0px 3px #b957ce,0px 0px 3px #b957ce,0px 0px 3px #b957ce,0px 0px 3px #b957ce; 
+  text-shadow: 0px 0px 6px rgb(0, 110, 255), 0px 0px 6px rgb(0, 110, 255),
+    0px 0px 6px #b957ce, 0px 0px 3px #b957ce, 0px 0px 3px #b957ce,
+    0px 0px 3px #b957ce, 0px 0px 3px #b957ce, 0px 0px 3px #b957ce,
+    0px 0px 3px #b957ce, 0px 0px 3px #b957ce, 0px 0px 3px #b957ce,
+    0px 0px 3px #b957ce, 0px 0px 3px #b957ce, 0px 0px 3px #b957ce,
+    0px 0px 3px #b957ce, 0px 0px 3px #b957ce;
   /* text-shadow: 0px 0px 3px orange,0px 0px 3px orange,0px 0px 3px orange,0px 0px 3px orange,0px 0px 3px orange,0px 0px 3px orange,0px 0px 3px orange; */
   /* text-shadow: 0px 0px 3px crimson,0px 0px 3px crimson,0px 0px 3px crimson,0px 0px 3px crimson,0px 0px 3px crimson,0px 0px 3px crimson; */
-  
-  
+
   font-weight: bold;
-  font-family: 'Play', sans-serif;
+  font-family: "Play", sans-serif;
   /* font-family: 'VT323', monospace; */
   /* font-family: 'Big Shoulders Stencil Display', cursive; */
   font-size: 50px;
@@ -326,21 +342,24 @@ select {
 }
 
 .BioDesc {
-  color:rgb(0, 110, 255);
-  font-family: 'VT323', monospace;
+  color: rgb(0, 110, 255);
+  font-family: "VT323", monospace;
   font-size: 35px;
   text-align: center;
   transform: translateY(-30px);
-
 }
 
 .Rating {
   color: #131812;
-  text-shadow: 0px 0px 6px rgb(0, 110, 255),0px 0px 6px rgb(0, 110, 255),0px 0px 3px rgb(19, 241, 19),0px 0px 3px rgb(19, 241, 19),0px 0px 3px rgb(19, 241, 19),0px 0px 3px rgb(19, 241, 19),0px 0px 3px rgb(19, 241, 19),0px 0px 3px rgb(19, 241, 19),0px 0px 3px rgb(19, 241, 19);
+  text-shadow: 0px 0px 6px rgb(0, 110, 255), 0px 0px 6px rgb(0, 110, 255),
+    0px 0px 3px rgb(19, 241, 19), 0px 0px 3px rgb(19, 241, 19),
+    0px 0px 3px rgb(19, 241, 19), 0px 0px 3px rgb(19, 241, 19),
+    0px 0px 3px rgb(19, 241, 19), 0px 0px 3px rgb(19, 241, 19),
+    0px 0px 3px rgb(19, 241, 19);
   /* color: rgb(19, 241, 19); */
   /* color: greenyellow; */
   /* font-weight: bold; */
-  font-family: 'Play', sans-serif;
+  font-family: "Play", sans-serif;
   /* font-family: 'Big Shoulders Stencil Display', cursive; */
   /* font-family: 'VT323', monospace; */
 
@@ -349,35 +368,32 @@ select {
   letter-spacing: 3px;
   word-spacing: 20px;
   /* transform:translateY(50px); */
-
-
 }
 
 .RatingDesc {
-  color:rgb(0, 110, 255);
+  color: rgb(0, 110, 255);
 
-  font-family: 'VT323', monospace;
+  font-family: "VT323", monospace;
 
   font-size: 35px;
   text-align: center;
   transform: translateY(-30px);
-
-
 }
 
 .Review {
   color: #131812;
-  text-shadow: 0px 0px 6px rgb(0, 110, 255),0px 0px 6px rgb(0, 110, 255),0px 0px 7px red,0px 0px 3px orange,0px 0px 3px orange,0px 0px 3px orange,0px 0px 3px orange,0px 0px 3px orange,0px 0px 3px orange;
+  text-shadow: 0px 0px 6px rgb(0, 110, 255), 0px 0px 6px rgb(0, 110, 255),
+    0px 0px 7px red, 0px 0px 3px orange, 0px 0px 3px orange, 0px 0px 3px orange,
+    0px 0px 3px orange, 0px 0px 3px orange, 0px 0px 3px orange;
   /* color: gold; */
   font-weight: bold;
-  font-family: 'Play', sans-serif;
+  font-family: "Play", sans-serif;
   /* font-family: 'VT323', monospace; */
   font-size: 50px;
   text-align: center;
   letter-spacing: 3px;
   word-spacing: 20px;
 }
-
 
 /* update bio button  */
 
@@ -396,42 +412,13 @@ select {
   justify-content: center;
 }
 
-
 .Biobtn2:hover {
-
   color: rgb(0, 166, 255);
   border-color: rgb(0, 166, 255);
-
-  background: #8e00ae ;
+  background: #8e00ae;
 }
 
-
-/* update bio input box */
-
-textarea[type="text"],
-textarea {
-  color: white;
-  font-family: 'VT323', monospace;
-  font-size: 20px;
-  background-color: darkslategray;
-  text-align: center;
-  border-color: white;
-  border-radius: 10px;
-  /* display: flex; */
-}
-textarea::placeholder {
-  /* font-weight:bolder ; */
-  font-family: 'VT323', monospace;
-  /* font-family: "Righteous", cursive; */
-  font-size: 20px;
-  color: white;
-  opacity: 0.8;
-  /* text-align: center; */
-}
-
-/* confirm update bio button */
-
-.Biobtn1{
+.Biobtn1 {
   color: white;
   background-color: #131812;
   font-family: "VT323", monospace;
@@ -443,20 +430,91 @@ textarea::placeholder {
   transition: width 2s, height 2s, transform 1s;
   cursor: pointer;
   /* justify-content: center; */
-
 }
 .Biobtn1:hover {
-  /* width: 400px; */
-  /* transform: translateY(-10%); */
-  /* color: rgb(0, 110, 255); */
   color: black;
   background: greenyellow;
   border-color: green;
 }
 
-.ChangeBioBox{
+.Reviewbtn2 {
+  color: rgba(245, 245, 220, 0.663);
+  background-color: #131812;
+  font-family: "VT323", monospace;
+  font-size: 20px;
+  border: solid;
+  padding: 8px 8px;
+  text-decoration: none;
+  border-radius: 10px;
+  /* transition: width 2s, height 2s, transform 1s; */
+  cursor: pointer;
+  display: flexbox;
+  justify-content: center;
+  text-align: center;
+}
+
+.Reviewbtn2:hover {
+  color: rgb(0, 166, 255);
+  border-color: rgb(0, 166, 255);
+  background: #8e00ae;
+}
+
+.Reviewbtn1 {
+  color: white;
+  background-color: #131812;
+  font-family: "VT323", monospace;
+  font-size: 20px;
+  border: solid;
+  padding: 8px 8px;
+  text-decoration: none;
+  border-radius: 13px;
+  transition: width 2s, height 2s, transform 1s;
+  cursor: pointer;
+}
+
+.Reviewbtn1:hover {
+  color: black;
+  background: greenyellow;
+  border-color: green;
+}
+
+.AddReviewButton1 {
   display: flex;
-  justify-content:space-evenly;
+  justify-content: center;
+}
+
+.AddReviewButton2 {
+  display: flex;
+  justify-content: center;
+}
+
+/* update bio input box */
+
+textarea[type="text"],
+textarea {
+  color: white;
+  font-family: "VT323", monospace;
+  font-size: 20px;
+  background-color: darkslategray;
+  text-align: center;
+  border-color: white;
+  border-radius: 10px;
+}
+textarea::placeholder {
+  /* font-weight:bolder ; */
+  font-family: "VT323", monospace;
+  /* font-family: "Righteous", cursive; */
+  font-size: 20px;
+  color: white;
+  opacity: 0.8;
+  /* text-align: center; */
+}
+
+/* confirm update bio button */
+
+.ChangeBioBox {
+  display: flex;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   flex-flow: column;
   /* max-width: fit-content; */
@@ -492,10 +550,17 @@ textarea::placeholder {
 
 .AboutPage {
   color: white;
-  font-family: 'Righteous', cursive;
+  font-family: "Righteous", cursive;
   display: flex;
   text-align: center;
   justify-content: center;
   transform: translateY(200px);
   padding: 30px;
+}
+
+.RatingOptionBox {
+  width: fit-content;
+  font-family: "Righteous", cursive;
+  color: #93c8c4;
+  background: #2c2e3b;
 }

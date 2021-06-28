@@ -75,9 +75,17 @@ function CreateListing() {
     return false;
   };
 
+  const filledup = () => {
+    if (searchGame === "CS:GO") {
+      return searchRank !== "" && searchPlaystyle !== "" && searchRole !== "";
+    } else if (searchGame === "Apex") {
+      return searchRank !== "" && searchPlaystyle !== "" && searchLegend !== "";
+    }
+    return false;
+  };
   return (
     <div className="App">
-      <header className="AllListingsHeader">All listings</header>
+      <header className="AllListingsHeader">Pick your filters</header>
       <div class="boxes">
         <div class="gamebox">
           <label class="boxTitle">Game:</label>
@@ -214,7 +222,11 @@ function CreateListing() {
 
         <br />
       </div>
-      <h1 class="listingsheader"> {searchGame} Available listings</h1>
+      {filledup() ? (
+        <h1 class="listingsheader"> {searchGame} Available listings</h1>
+      ) : (
+        ""
+      )}
       <br />
       <br />
       {allListing.filter(filterListings).map((val, key) => {
