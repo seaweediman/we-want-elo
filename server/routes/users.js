@@ -37,6 +37,16 @@ router.get("/:id", async (req, res) => {
     });
 });
 
+router.get("/", async (req, res) => {
+  await User.find()
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 // Example
 // useEffect(() => {
 //   axios.get(`http://localhost:3001/listing/${steamId}`).then((response) => {

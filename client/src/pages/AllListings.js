@@ -2,14 +2,13 @@ import "./Pages.css";
 import { Link, withRouter } from "react-router-dom";
 import React, { useEffect, useState, useHistory } from "react";
 import axios from "axios";
-import { FormHelperText } from "@material-ui/core";
 
 // import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // import { Navigation, Footer, Home } from "../components";
 
 function CreateListing() {
   const [user, setUser] = useState(null);
-  const [rating, setRating] = useState("");
+  const [alluser, setAllUser] = useState([]);
 
   const [allListing, setAllListing] = useState([]);
   const [searchGame, setSearchGame] = useState("");
@@ -22,7 +21,21 @@ function CreateListing() {
     axios.get("http://localhost:3001/listing").then((response) => {
       setAllListing(response.data);
     });
-  });
+  }, []);
+
+  useEffect(() => {
+    async function fetchAllUser() {
+      try {
+        const response = await axios.get("http://localhost:3001/users/", {
+          withCredentials: true,
+        });
+        await setAllUser(response.data);
+      } catch (e) {
+        console.error(e);
+      }
+    }
+    fetchAllUser();
+  }, []);
 
   useEffect(() => {
     async function fetchUser() {
@@ -30,7 +43,6 @@ function CreateListing() {
         const response = await axios.get("http://localhost:3001/user", {
           withCredentials: true,
         });
-        console.log(response.data.user);
         setUser(response.data.user);
       } catch (e) {
         console.error(e);
@@ -43,29 +55,12 @@ function CreateListing() {
     axios.delete(`http://localhost:3001/listing/${id}`);
   };
 
-  const getRating = (id) => {
-    async function fetchOwner() {
-      try {
-        const response = await axios.get(`http://localhost:3001/user/${id}`, {
-          withCredentials: true,
-        });
-        setRating(response.data.rating);
-      } catch (e) {
-        console.error(e);
-      }
-    }
-    fetchOwner();
-  };
-
-  const filterListings = (val) => 
-  {
+  const filterListings = (val) => {
     if (
       val.game === searchGame &&
       (val.rankgroup === searchRank || searchRank === "Any") &&
       (val.playstyle === searchPlaystyle || searchPlaystyle === "Either")
-    ) 
-
-    {
+    ) {
       if (searchGame === "CS:GO") {
         return val.role === searchRole || searchRole === "Either";
       } else {
@@ -219,76 +214,99 @@ function CreateListing() {
 
         <br />
       </div>
-      <h1 class="listingsheader">
-        {" "}
-        {searchGame} Available listings
-        </h1>
-        <br />
-        <br />
+      <h1 class="listingsheader"> {searchGame} Available listings</h1>
+      <br />
+      <br />
       {allListing.filter(filterListings).map((val, key) => {
-        getRating(val.steamid);
+        let userrating = alluser.find(
+          (element) => element.steamid === val.steamid
+        ).rating;
         return (
           <div className="eachListing">
-            <h1 class='inner'>
-            <header class='line'>
-              <mark class="left"> Name: </mark>
-              <Link
-              class="nav-link"
-              to={{
-                pathname: `/ProfilePage/${val.steamid}`,
-                state: {
-                  name: val.name.key,
-                  id: val.steamid,
-                },
-              }}
-            >
-              <mark class="right" href="">
-                {val.name}
-              </mark>
-            </Link>
-            </header>
-            <header class='line'><mark class="left">Game:</mark> <mark class="right">{val.game}</mark></header>
-            <header class='line'><mark class="left">Rank:</mark> <mark class="right">{val.rank}</mark></header>
-            {/* <header class='line'><mark class="left">Playstyle:</mark> <mark class="right">{val.playstyle}</mark></header>
-            <header class='line'><mark class="left">Role:</mark> <mark class="right">{val.role}</mark></header> */}
-            {val.game === "CS:GO" ? (
-              <div>
-                <header class='line'><mark class="left">Playstyle:</mark> <mark class="right">{val.playstyle}</mark></header>
-                <header class='line'><mark class="left">Role:</mark> <mark class="right">{val.role}</mark></header>
+            <h1 class="inner">
+              <header class="line">
+                <mark class="left"> Name: </mark>
+                <Link
+                  class="nav-link"
+                  to={{
+                    pathname: `/ProfilePage/${val.steamid}`,
+                    state: {
+                      name: val.name.key,
+                      id: val.steamid,
+                    },
+                  }}
+                >
+                  <mark class="right" href="">
+                    {val.name}
+                  </mark>
+                </Link>
+              </header>
+              <header class="line">
+                <mark class="left">Game:</mark>{" "}
+                <mark class="right">{val.game}</mark>
+              </header>
+              <header class="line">
+                <mark class="left">Rank:</mark>{" "}
+                <mark class="right">{val.rank}</mark>
+              </header>
 
-              </div>
-            ) : (
-              <div>
-                {" "}
-                <header class='line'><mark class="left">Legends:</mark> <mark class="right">{val.playstyle}</mark></header>
-                <header class='line'><mark class="left">Role:</mark> <mark class="right">{val.legend1} {val.legend2} {val.legend3}</mark></header>
-              </div>
-            )}
-            <header class='line'><mark class="left">Description:</mark> <mark class="right">{val.desc}</mark></header>
-            <header class='line'><mark class="left">Rating:</mark> <mark class="right">{rating}</mark></header>
-            {user !== undefined && user.id === val.steamid ? (
-              <button class="deletebtn" onClick={() => deleteListing(val._id)}>
-                {" "}
-                Delete{" "}
-              </button>
-            ) : (
-              ""
-            )}
-            {user !== undefined && user.id !== val.steamid ? (
-              <a href={`steam://friends/add/${val.steamid}`}>
-                <button class="addfriendbtn">Add Friend</button>
-              </a>
-            ) : (
-              ""
-            )}
+              {val.game === "CS:GO" ? (
+                <div>
+                  <header class="line">
+                    <mark class="left">Playstyle:</mark>{" "}
+                    <mark class="right">{val.playstyle}</mark>
+                  </header>
+                  <header class="line">
+                    <mark class="left">Role:</mark>{" "}
+                    <mark class="right">{val.role}</mark>
+                  </header>
+                </div>
+              ) : (
+                <div>
+                  {" "}
+                  <header class="line">
+                    <mark class="left">Legends:</mark>{" "}
+                    <mark class="right">{val.playstyle}</mark>
+                  </header>
+                  <header class="line">
+                    <mark class="left">Role:</mark>{" "}
+                    <mark class="right">
+                      {val.legend1} {val.legend2} {val.legend3}
+                    </mark>
+                  </header>
+                </div>
+              )}
+              <header class="line">
+                <mark class="left">Description:</mark>{" "}
+                <mark class="right">{val.desc}</mark>
+              </header>
+              <header class="line">
+                <mark class="left">Rating:</mark>{" "}
+                <mark class="right">{userrating}</mark>
+              </header>
+              {user !== undefined && user.id === val.steamid ? (
+                <button
+                  class="deletebtn"
+                  onClick={() => deleteListing(val._id)}
+                >
+                  {" "}
+                  Delete{" "}
+                </button>
+              ) : (
+                ""
+              )}
+              {user !== undefined && user.id !== val.steamid ? (
+                <a href={`steam://friends/add/${val.steamid}`}>
+                  <button class="addfriendbtn">Add Friend</button>
+                </a>
+              ) : (
+                ""
+              )}
             </h1>
           </div>
         );
       })}
-
-
       {/* to display all listings */}
-
       {/* <h1 class='listingsheader'> All listings</h1>
       <h1>--------------------------------------</h1>
       {allListing.map((val, key) => {

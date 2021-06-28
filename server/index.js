@@ -41,7 +41,6 @@ passport.use(
         profile.identifier = identifier;
         let user = await User.findOne({ steamid: profile.id });
         if (!user) {
-          console.log("NEW ACCOUNT");
           const newUser = new User({
             steamid: profile.id,
             steamprofile: profile,
@@ -91,7 +90,7 @@ app.use(express.static(path.resolve(__dirname, "../client/build")));
 
 app.use("/listing", listingRoute);
 app.use("/comment", commentRoute);
-app.use("/user", userRoute);
+app.use("/users", userRoute);
 
 //Routes
 app.get("/user", function (req, res) {
