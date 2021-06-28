@@ -95,9 +95,8 @@ function ProfilePage({ match }) {
     }
 
     async function updateRating() {
-      const n = Number(numberComments) + 1;
-      console.log(n);
-      const updatedRating = (owner.rating + Number(newRating)) / n;
+      const n = Number(numberComments);
+      const updatedRating = (owner.rating * n + Number(newRating)) / (n + 1);
       axios.patch(`/users/rating/${match.params.id}`, {
         rating: updatedRating,
       });
