@@ -98,8 +98,8 @@ function CreateListing() {
             <option value="" disabled selected hidden>
               Filter By Game...
             </option>
-            <option value="CS:GO">CS:GO</option>
             <option value="Apex">APEX</option>
+            <option value="CS:GO">CS:GO</option>
           </select>
         </div>
         <br />

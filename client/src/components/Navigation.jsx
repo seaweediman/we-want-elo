@@ -117,8 +117,8 @@ function Navigation(props) {
             </li></button>
   
   <div class="dropdown-content">
-    <a href="/AllListings">All listings</a>
     <a href="/CreateListing">Create your listing</a>
+    <a href="/AllListings">Find listings</a>
   </div>
 </div>
 
