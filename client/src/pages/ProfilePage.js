@@ -1,7 +1,12 @@
+
+
 import "./Pages.css";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia"></link>
+
+
 
 function ProfilePage({ match }) {
   const [owner, setOwner] = useState([]);
@@ -110,31 +115,53 @@ function ProfilePage({ match }) {
   };
 
   return (
-    <div class="Profile">
+    <div>
       <br />
       <br />
-      <h1>Welcome to {!profile ? "" : profile.displayName}'s Profile</h1>
-      <p>Bio: {owner.bio}</p>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <header class='ProfileHeader'>{!profile ? "" : profile.displayName}'s profile</header>
+      <br />
+      <br />
+      <div className="ProfileContents">
+      <p class="BioTag">About me: </p><p class='BioDesc'>{owner.bio}</p>
+
       {!user ? (
         ""
       ) : owner.steamid !== user.id ? (
         ""
       ) : changeBio ? (
-        <div>
-          <input
+        <div className="ChangeBioBox">
+          <textarea
+          type="text"
+          // rows="4" cols="80"
+          rows="8" cols="140"
+          placeholder="About yourself..."
             onChange={(event) => {
               setNewBio(event.target.value);
             }}
-          ></input>{" "}
-          <button onClick={() => updateBio(profile.id)}>Update Bio</button>
+          ></textarea>{" "}
+          <br />
+          <div className="ChangeBioButton">
+          <button className="Biobtn1" onClick={() => updateBio(profile.id)}>Update</button>
+        </div>
         </div>
       ) : (
-        <button onClick={() => setChangeBio(true)}>Update Bio?</button>
+        <div className="UpdateBioButton">
+        <button className="Biobtn2" onClick={() => setChangeBio(true)}>Update Bio</button>
+        </div>
       )}
-      <h2>
-        Rating: {owner.rating}/5 ({numberComments} reviews)
-      </h2>
-      <h2>{!profile ? "" : profile.displayName}'s reviews</h2>
+
+
+      <h2 class='Rating'>Rating: </h2>
+      <h2 class='RatingDesc'>{owner.rating}/5 ({numberComments} reviews)</h2>
+      <h2 class='Review'>{!profile ? "" : profile.displayName}'s reviews:</h2>
+      <br />
+      <br />
+      {/* {numberComments === 0 ? none :  */}
       {!user ? (
         ""
       ) : owner.steamid === user.id ? (
@@ -172,54 +199,38 @@ function ProfilePage({ match }) {
           </div>
         );
       })}
-      <h2>{!profile ? "" : profile.displayName}'s Listings</h2>
+      </div>
+      <h2 className="ProfileHeader">
+      {/* {!profile ? "" : profile.displayName}'s  */}
+      Listings</h2>
+      <br />
+      <br />
+      {/* <h1 className='line'>.....................................................................................</h1> */}
       {allListing.map((val, key) => {
         return (
-          <div>
-            <Link
-              class="nav-link"
-              to={{
-                pathname: `/ProfilePage/${val.steamid}`,
-                state: {
-                  name: val.name.key,
-                  id: val.steamid,
-                },
-              }}
-            >
-              <h1 class="listingheader"> Name : </h1>
-              <h2 class="listingvalue" href="">
-                {val.name}
-              </h2>
-            </Link>
-            <h1 class="listingheader"> Game : </h1>
-            <h2 class="listingvalue">{val.game}</h2>
-            <h1 class="listingheader"> Rank : </h1>
-            <h2 class="listingvalue">{val.rank}</h2>
+          <div class='eachListing'>
+            <h1 class='inner'>
+            <header class='line'><mark class="left">Game:</mark> <mark class="right">{val.game}</mark></header>
+            <header class='line'><mark class="left">Rank:</mark> <mark class="right">{val.rank}</mark></header>
+            {/* <header class='line'><mark class="left">Playstyle:</mark> <mark class="right">{val.playstyle}</mark></header>
+            <header class='line'><mark class="left">Role:</mark> <mark class="right">{val.role}</mark></header> */}
             {val.game === "CS:GO" ? (
               <div>
-                {" "}
-                <h1 class="listingheader"> Playstyle : </h1>
-                <h2 class="listingvalue">{val.playstyle}</h2>
-                <h1 class="listingheader"> Role : </h1>
-                <h2 class="listingvalue">{val.role}</h2>
+                <header class='line'><mark class="left">Playstyle:</mark> <mark class="right">{val.playstyle}</mark></header>
+                <header class='line'><mark class="left">Role:</mark> <mark class="right">{val.role}</mark></header>
+
               </div>
             ) : (
               <div>
                 {" "}
-                <h1 class="listingheader"> Playstyle : </h1>
-                <h2 class="listingvalue">{val.playstyle}</h2>
-                <h1 class="listingheader"> Legends : </h1>
-                <h2 class="listingvalue">{val.legend1}</h2>
-                <h2 class="listingvalue">{val.legend2}</h2>
-                <h2 class="listingvalue">{val.legend3}</h2>
+                <header class='line'><mark class="left">Legends:</mark> <mark class="right">{val.playstyle}</mark></header>
+                <header class='line'><mark class="left">Role:</mark> <mark class="right">{val.legend1} {val.legend2} {val.legend3}</mark></header>
               </div>
             )}
-            <h1 class="listingheader"> Description : </h1>
-            <h2 class="listingvalue">{val.desc} </h2>
+            <header class='line'><mark class="left">Description:</mark> <mark class="right">{val.desc}</mark></header>
             {user !== undefined && user.id === val.steamid ? (
               <button class="deletebtn" onClick={() => deleteListing(val._id)}>
-                {" "}
-                Delete{" "}
+                Delete
               </button>
             ) : (
               ""
@@ -231,10 +242,13 @@ function ProfilePage({ match }) {
             ) : (
               ""
             )}
-            <h1>--------------------------------------</h1>
+        </h1>
           </div>
         );
       })}
+      <p>
+
+      </p>
     </div>
   );
 }

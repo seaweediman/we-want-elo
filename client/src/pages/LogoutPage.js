@@ -1,8 +1,6 @@
 import './Pages.css';
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
-// '../components/Home.js';
-
 
 function LogoutPage() {
   const [user, setUser] = useState(null);
@@ -33,10 +31,10 @@ function LogoutPage() {
   </div>
     : <div class='loginStatus'>
     <br /><br /><br /><br />
+    <p>You're logged in, {user.displayName}</p>
     <p>
-    <a href="http://localhost:3001/logout">Logout</a>
+    <a href="http://localhost:3001/logout">Click here to logout</a>
     </p>
-    {/* <p>You're logged in, {user.displayName}</p> */}
       <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
   </div>
   }

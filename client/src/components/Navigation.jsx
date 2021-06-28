@@ -4,7 +4,8 @@ import "../pages/LogoutPage";
 import { Link, withRouter } from "react-router-dom";
 import React, { useRef, useEffect, useState } from "react";
 import axios from "axios";
-import { CSSTransition } from "react-transition-group";
+import { GiConsoleController } from "react-icons/gi";
+
 
 function Navigation(props) {
   const [user, setUser] = useState(null);
@@ -29,9 +30,10 @@ function Navigation(props) {
     <div className="navigation">
       <nav class="navbar navbar-expand navbar-dark bg-dark">
           <div className="title">
-            <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand" href="/">WE WANT ELO</a>
-            </nav>
+            {/* <nav class="navbar navbar-light bg-light"> */}
+            <a href="/">WE WANT ELO </a>
+            {/* <icon className='GiConsoleController'><GiConsoleController /></icon> */}
+            {/* </nav> */}
           </div>
           <div className="navcontainer">
             <div className="navhome">

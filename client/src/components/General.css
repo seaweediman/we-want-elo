@@ -1,42 +1,63 @@
 /* Homepage settings */
-@import url("https://fonts.googleapis.com/css2?family=Righteous&family=VT323&family=Press+Start+2P&family=Sigmar+One&family=Londrina+Shadow&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Righteous&family=VT323&family=Press+Start+2P&family=Londrina+Shadow&family=ZCOOL+QingKe+HuangYou&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display&display=swap'); */
+
+
+
+.homepage {
+
+}
 
 .Catchphrase {
-  color: lightcoral;
+  color: rgb(0, 110, 255);
+  background: none;
   font-family: "Press Start 2P", cursive;
-
-  margin: auto;
+  margin:auto;
   width: 25%;
-  bottom: -1000px;
   transform: translateY(-1700px);
+
   word-spacing: 20px;
-  border: double;
+  border: double #b957ce;
   border-width: 10px;
   padding: 75px;
   border-radius: 20px;
   text-align: center;
+  transition: 0.2s linear;
+
 }
+
+
 
 .Catchphrase:hover {
-  color: rgb(243, 70, 70);
-  border-color: khaki;
-  transition-timing-function: linear;
+  color: rgb(0, 166, 255);
+  border-color: hotpink;
+  background: #131812;
+  
 
-  /* text-shadow: 0 0 2px yellow; */
 }
 
+.GiControllerIcon {
+  color: lime;
+  background: none;
+  font-size: 70px;
+
+}
+
+
+
 .username {
-  color: lightpink;
-  font-size: 65px;
-  font-family: "Londrina Shadow", cursive;
-  /* font-family: 'Sigmar One', cursive; */
-  /* text-align: center; */
+  color: rgb(0, 166, 255);
+  font-size: 60px;
+  /* font-family: "Londrina Shadow", cursive; */
+  font-family: "Righteous", cursive;
   text-decoration: underline;
-  /* border: 15px dotted hotpink; */
   padding: 10px;
-  /* margin: 20px; */
   border-width: 5px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  text-shadow: 0px 0px 5px magenta;
+
 }
 
 .backgroundimage {
@@ -46,12 +67,72 @@
   display: flex;
   justify-content: center;
   opacity: 0.6;
-
+  transform: scale(0.50);
   /* filter: blur(2px); */
   /* object-fit: cover; */
   /* object-position:50% 50%; */
   /* transform: translateY(55%) scale(2); */
-  transform: scale(0.9);
+  /* transform: scale(0.4); */
+}
+
+
+.HomepageDescription {
+  color: none;
+  /* font-family: "Righteous", cursive; */
+  font-family: "VT323", monospace;
+  /* font-weight: 100px; */
+  font-size: 70px;
+  letter-spacing: 5px;
+  transform: translateY(-1500px);
+  display: flex;
+  justify-content: center;
+  padding:0px 40px;
+  text-shadow: 0px 0px 7px rgba(157, 20, 220, 0.724), 0px 0px 4px rgba(0, 255, 234, 0.793), 0px 0px 7px rgb(111, 255, 0);
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  padding-right: 80px;
+  transform: translateY(-1600px);
+}
+
+.apexicon {
+  display: flex;
+  justify-content: center;
+  background: lightslategrey;
+  transform: scale(0.5);
+  border: solid;
+  margin: auto;
+  border-width: 7px;
+  border-color: white;
+  border-radius: 30px;
+  height: 500px;
+}
+
+.apexicon:hover {
+  border-color: gray;
+}
+
+
+.csgoicon {
+  display: flex;
+  justify-content: center;
+  background: lightslategrey;
+  transform: scale(0.5);
+  border: solid;
+  border-width: 7px;
+  border-color: white;
+  border-radius: 30px;
+  height: 500px;
+}
+
+.csgoicon:hover {
+  border-color: gray;
+}
+
+.homepage {
+  max-height: 10px;
 }
 
 /* Navbar settings */
@@ -65,21 +146,22 @@
   /* border-radius: 20px; */
   font-size: xxx-large;
   font-family: "Press Start 2P", cursive;
-  padding: 20px 30px;
+  padding: 20px 20px;
   /* background-color: #131812; */
   transition-duration: 0.5s;
+  /* display: inline-block; */
   display: inline-block;
-  transition-property: box-shadow;
   text-align: center;
   transform: translateX(15px) translateY(20px);
+  cursor: pointer;
 }
 
 .title a {
   text-decoration: none;
-  color: yellow;
+  color: #8e00ae;
   transition-duration: 0.5s;
   /* text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue; */
-  text-shadow: 1.3px 1.3px 1.3px yellow;
+  text-shadow: 3px 3px 0px rgb(0, 166, 255);
 }
 
 .title:hover {
@@ -88,8 +170,12 @@
 }
 .title a:hover {
   transition-duration: 0.5s;
-  color: red;
+  /* color: red; */
+  color: #fd6abf;
+
 }
+
+
 
 /* 
 .but {
@@ -174,7 +260,7 @@
 }
 
 .navcontainer a {
-  color: orange;
+  color: #424eeb;
   /* text-shadow: 1.5px 1.5px 2px yellow; */
   font-size: 40px;
   font-weight: bolder;
@@ -231,7 +317,7 @@
   transform: translateY(40px);
   display: none;
   position: absolute;
-  box-shadow: 0 0 20px rgb(162, 3, 190);
+  box-shadow: 0 0 10px rgb(162, 3, 190);
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -239,12 +325,8 @@
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  /* color: rgb(162, 3, 190); */
-  /* font-size: 35px; */
-  /* transform: translateY(45px); */
   border: solid;
   border-radius: 20px;
-  /* color: black; */
   padding: 10px 16px;
   text-decoration: none;
   display: block;
@@ -252,11 +334,9 @@
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-  color: black;
+  color: rgb(125, 1, 146);
   border-radius: 20px;
-  background-color: orange;
-  /* transition-duration: 1s; */
-  /* transition: linear; */
+  background-color: black;
   transition-duration: 0.5s;
   box-shadow: 0 0 20px rgb(162, 3, 190);
 }
@@ -294,12 +374,18 @@
 /* Footer settings */
 
 .footer {
-  color: white;
-  background-color: #131812;
-  /* opacity: 0.9;
-    height: 50px;
-    width: 1000px; */
-  font-family: "Righteous", cursive;
+  position:fixed;
   bottom: 0;
-  position: relative;
+  opacity: 0.7;
+  color: beige;
+  background: none;
+  /* position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%; */
+  font-family: "Righteous", cursive;
+
 }
+
+
+

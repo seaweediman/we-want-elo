@@ -1,17 +1,14 @@
 import './General.css';
 import React from "react";
+import { Link } from "react-router-dom";
+
 
 function Footer() {
   return (
-    <div className="footer">
-      <footer class="py-5 bg-dark fixed-bottom">
-        <div class="container">
+    <Link className="footer" to='/About'>
+          By GGEZ
 
-            By GGEZ
-
-        </div>
-      </footer>
-    </div>
+    </Link>
   );
 }
 

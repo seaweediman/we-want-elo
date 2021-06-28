@@ -57,14 +57,17 @@ function CreateListing() {
     fetchOwner();
   };
 
-  const filterListings = (val) => {
+  const filterListings = (val) => 
+  {
     if (
       val.game === searchGame &&
       (val.rankgroup === searchRank || searchRank === "Any") &&
       (val.playstyle === searchPlaystyle || searchPlaystyle === "Either")
-    ) {
+    ) 
+
+    {
       if (searchGame === "CS:GO") {
-        return val.role === searchRole || searchRole === "Any";
+        return val.role === searchRole || searchRole === "Either";
       } else {
         return (
           val.legend1 === searchLegend ||
@@ -79,9 +82,7 @@ function CreateListing() {
 
   return (
     <div className="App">
-      <br></br>
-      <br></br>
-      <br></br>
+      <header className="AllListingsHeader">All listings</header>
       <div class="boxes">
         <div class="gamebox">
           <label class="boxTitle">Game:</label>
@@ -220,13 +221,18 @@ function CreateListing() {
       </div>
       <h1 class="listingsheader">
         {" "}
-        {searchGame} {searchRank} Available listings
-      </h1>
+        {searchGame} Available listings
+        </h1>
+        <br />
+        <br />
       {allListing.filter(filterListings).map((val, key) => {
         getRating(val.steamid);
         return (
-          <div>
-            <Link
+          <div className="eachListing">
+            <h1 class='inner'>
+            <header class='line'>
+              <mark class="left"> Name: </mark>
+              <Link
               class="nav-link"
               to={{
                 pathname: `/ProfilePage/${val.steamid}`,
@@ -236,38 +242,30 @@ function CreateListing() {
                 },
               }}
             >
-              <h1 class="listingheader"> Name : </h1>
-              <h2 class="listingvalue" href="">
+              <mark class="right" href="">
                 {val.name}
-              </h2>
+              </mark>
             </Link>
-            <h1 class="listingheader"> Game : </h1>
-            <h2 class="listingvalue">{val.game}</h2>
-            <h1 class="listingheader"> Rank : </h1>
-            <h2 class="listingvalue">{val.rank}</h2>
-            {searchGame === "CS:GO" ? (
+            </header>
+            <header class='line'><mark class="left">Game:</mark> <mark class="right">{val.game}</mark></header>
+            <header class='line'><mark class="left">Rank:</mark> <mark class="right">{val.rank}</mark></header>
+            {/* <header class='line'><mark class="left">Playstyle:</mark> <mark class="right">{val.playstyle}</mark></header>
+            <header class='line'><mark class="left">Role:</mark> <mark class="right">{val.role}</mark></header> */}
+            {val.game === "CS:GO" ? (
               <div>
-                {" "}
-                <h1 class="listingheader"> Playstyle : </h1>
-                <h2 class="listingvalue">{val.playstyle}</h2>
-                <h1 class="listingheader"> Role : </h1>
-                <h2 class="listingvalue">{val.role}</h2>
+                <header class='line'><mark class="left">Playstyle:</mark> <mark class="right">{val.playstyle}</mark></header>
+                <header class='line'><mark class="left">Role:</mark> <mark class="right">{val.role}</mark></header>
+
               </div>
             ) : (
               <div>
                 {" "}
-                <h1 class="listingheader"> Playstyle : </h1>
-                <h2 class="listingvalue">{val.playstyle}</h2>
-                <h1 class="listingheader"> Legends : </h1>
-                <h2 class="listingvalue">{val.legend1}</h2>
-                <h2 class="listingvalue">{val.legend2}</h2>
-                <h2 class="listingvalue">{val.legend3}</h2>
+                <header class='line'><mark class="left">Legends:</mark> <mark class="right">{val.playstyle}</mark></header>
+                <header class='line'><mark class="left">Role:</mark> <mark class="right">{val.legend1} {val.legend2} {val.legend3}</mark></header>
               </div>
             )}
-            <h1 class="listingheader"> Description : </h1>
-            <h2 class="listingvalue">{val.desc} </h2>
-            <h1 class="listingheader"> Rating : </h1>
-            <h2 class="listingvalue">{rating} </h2>
+            <header class='line'><mark class="left">Description:</mark> <mark class="right">{val.desc}</mark></header>
+            <header class='line'><mark class="left">Rating:</mark> <mark class="right">{rating}</mark></header>
             {user !== undefined && user.id === val.steamid ? (
               <button class="deletebtn" onClick={() => deleteListing(val._id)}>
                 {" "}
@@ -283,10 +281,40 @@ function CreateListing() {
             ) : (
               ""
             )}
-            <h1>--------------------------------------</h1>
+            </h1>
           </div>
         );
       })}
+
+
+      {/* to display all listings */}
+
+      {/* <h1 class='listingsheader'> All listings</h1>
+      <h1>--------------------------------------</h1>
+      {allListing.map((val, key) => {
+        return (
+          <div>
+            <header class='line'>Name : {val.name} </header>
+            <header class='line'>Game : {val.game}</header>
+            <header class='line'> Rank : {val.rank}</header>
+            <header class='line'>Description : {val.desc}</header>
+            <header class='line'>steamID : {val.steamid}</header>
+            {user !== undefined && user.id === val.steamid ? (
+              <button class='deletebtn' onClick={() => deleteListing(val._id)}> Delete </button>
+            ) : (
+              ""
+            )}
+            {user !== undefined && user.id !== val.steamid ? (
+              <a href={`steam://friends/add/${val.steamid}`}>
+                <button class='addfriendbtn'>Add Friend</button>
+              </a>
+            ) : (
+              ""
+            )}
+            <h1>--------------------------------------</h1>
+          </div>
+        );
+      })} */}
       );
     </div>
   );
