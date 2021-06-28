@@ -75,10 +75,10 @@ function ProfilePage({ match }) {
   };
 
   const updateBio = (id) => {
-    window.location.reload();
     axios.patch(`/users/bio/${id}`, {
       bio: newBio,
     });
+    window.location.reload();
   };
 
   const submitComment = () => {
