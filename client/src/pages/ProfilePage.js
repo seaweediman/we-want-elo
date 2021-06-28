@@ -9,7 +9,7 @@ import axios from "axios";
 
 function ProfilePage({ match }) {
   const [owner, setOwner] = useState([]);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
   const [profile, setProfile] = useState({});
   const [allListing, setAllListing] = useState([]);
   const [allReviews, setAllReviews] = useState([]);
