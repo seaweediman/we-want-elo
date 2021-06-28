@@ -102,6 +102,7 @@ function ProfilePage({ match }) {
     }
     submit();
     updateRating();
+    window.location.reload();
   };
 
   return (
@@ -171,7 +172,7 @@ function ProfilePage({ match }) {
               type="text"
               rows="8"
               cols="140"
-              placeholder="About yourself..."
+              placeholder="Write a comment about this user..."
               onChange={(event) => {
                 setNewComment(event.target.value);
               }}
@@ -189,7 +190,9 @@ function ProfilePage({ match }) {
               <option value="5"> 5 </option>
             </select>
             <div className="AddReviewButton1">
-              <button onClick={() => submitComment()}>Add Review</button>
+              <button className="Reviewbtn1" onClick={() => submitComment()}>
+                Add Review
+              </button>
             </div>
           </div>
         ) : (
