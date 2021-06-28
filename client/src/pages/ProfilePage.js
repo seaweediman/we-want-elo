@@ -79,6 +79,7 @@ function ProfilePage({ match }) {
     axios.patch(`/users/bio/${id}`, {
       bio: newBio,
     });
+    window.location.reload();
   };
 
   const submitComment = () => {
