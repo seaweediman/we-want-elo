@@ -15,6 +15,23 @@ const SteamStrategy = require("passport-steam").Strategy;
 const User = require("./models/user");
 const util = require("util");
 
+var environment = process.env.NODE_ENV || "dev";
+
+const returnURL =
+  environment !== "dev"
+    ? "https://we-want-elo.herokuapp.com/auth/steam/return"
+    : "http://localhost:3001/auth/steam/return";
+
+const realmString =
+  environment !== "dev"
+    ? "https://we-want-elo.herokuapp.com/"
+    : "http://localhost:3001/";
+
+const frontEndURL =
+  environment !== "dev"
+    ? "https://we-want-elo.herokuapp.com/"
+    : "http://localhost:3000/";
+
 passport.serializeUser(function (user, done) {
   done(null, user);
 });
@@ -26,8 +43,8 @@ passport.deserializeUser(function (obj, done) {
 passport.use(
   new SteamStrategy(
     {
-      returnURL: "http://localhost:3001/auth/steam/return",
-      realm: "http://localhost:3001/",
+      returnURL: "https://we-want-elo.herokuapp.com/auth/steam/return",
+      realm: "https://we-want-elo.herokuapp.com/",
       apiKey: "A5F368B4E61612A7C2A588F8017E88E4",
     },
 
@@ -67,7 +84,7 @@ passport.use(
 
 app.use(
   cors({
-    origin: "http://localhost:3000", // allow to server to accept request from different origin
+    origin: "https://we-want-elo.herokuapp.com/", // allow to server to accept request from different origin
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true, // allow session cookie from browser to pass through
   })
@@ -99,14 +116,14 @@ app.get("/user", function (req, res) {
 
 app.get("/logout", function (req, res) {
   req.logout();
-  res.redirect("http://localhost:3000/");
+  res.redirect("https://we-want-elo.herokuapp.com/");
 });
 
 app.get(
   "/auth/steam",
   passport.authenticate("steam", { failureRedirect: "/" }),
   function (req, res) {
-    res.redirect("http://localhost:3000/");
+    res.redirect("https://we-want-elo.herokuapp.com/");
   }
 );
 
@@ -119,7 +136,7 @@ app.get(
   "/auth/steam/return",
   passport.authenticate("steam", { failureRedirect: "/" }),
   function (req, res) {
-    res.redirect("http://localhost:3000/");
+    res.redirect("https://we-want-elo.herokuapp.com/");
   }
 );
 
@@ -139,5 +156,6 @@ mongoose.connection.on("connected", () => {
 
 //Listen
 app.listen(PORT, () => {
+  console.log(`This is ${environment}`);
   console.log(`Server listening on ${PORT}`);
 });
