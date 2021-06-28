@@ -73,6 +73,7 @@ function ProfilePage({ match }) {
 
   const deleteListing = (id) => {
     axios.delete(`/listing/${id}`);
+    window.location.reload();
   };
 
   const updateBio = (id) => {
