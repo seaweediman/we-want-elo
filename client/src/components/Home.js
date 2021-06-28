@@ -3,14 +3,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { GiConsoleController } from "react-icons/gi";
 
-
 function Home() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
     async function fetchUser() {
       try {
-        const response = await axios.get("http://localhost:3001/user", {
+        const response = await axios.get("/user", {
           withCredentials: true,
         });
         console.log(response.data.user);
@@ -47,20 +46,29 @@ function Home() {
         <br />
         <br />
         <div className="username">
-          {user === null || user === undefined ? <icon className='GiConsoleController'><GiConsoleController /></icon> : user.displayName}
+          {user === null || user === undefined ? (
+            <icon className="GiConsoleController">
+              <GiConsoleController />
+            </icon>
+          ) : (
+            user.displayName
+          )}
         </div>
         {/* <button onClick={callUser}> Call /user </button> */}
       </h1>
       <h2 class="HomepageDescription">The community for gamers</h2>
-      <div  class="icons">
-        <div class="csgoicon"><a href="https://blog.counter-strike.net/">
-          <img src="https://1000logos.net/wp-content/uploads/2017/12/CSGO-Logo-768x432.png"/>
-            </a></div>
-            <div class="apexicon"><a href="https://www.ea.com/en-gb/games/apex-legends">
-          <img src="https://i.ibb.co/cN9dByH/apex-legends-logo-png-transparent.png"/>
-          </a></div>
-            
-</div>
+      <div class="icons">
+        <div class="csgoicon">
+          <a href="https://blog.counter-strike.net/">
+            <img src="https://1000logos.net/wp-content/uploads/2017/12/CSGO-Logo-768x432.png" />
+          </a>
+        </div>
+        <div class="apexicon">
+          <a href="https://www.ea.com/en-gb/games/apex-legends">
+            <img src="https://i.ibb.co/cN9dByH/apex-legends-logo-png-transparent.png" />
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

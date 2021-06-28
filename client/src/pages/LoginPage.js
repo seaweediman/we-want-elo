@@ -9,7 +9,7 @@ function LoginPage() {
   useEffect(() => {
     async function fetchUser() {
       try {
-        const response = await axios.get("http://localhost:3001/user", {
+        const response = await axios.get("/user", {
           withCredentials: true,
         });
         console.log(response.data.user);

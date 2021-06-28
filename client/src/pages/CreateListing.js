@@ -53,7 +53,7 @@ function CreateListing() {
   useEffect(() => {
     async function fetchUser() {
       try {
-        const response = await axios.get("http://localhost:3001/user", {
+        const response = await axios.get("/user", {
           withCredentials: true,
         });
         console.log(response.data.user);
@@ -67,7 +67,7 @@ function CreateListing() {
 
   const CreateListing = () => {
     if (game === "CS:GO") {
-      axios.post("http://localhost:3001/listing/cs", {
+      axios.post("/listing/cs", {
         name: user.displayName,
         game: game,
         rank: rank,
@@ -78,7 +78,7 @@ function CreateListing() {
         steamid: user.id,
       });
     } else {
-      axios.post("http://localhost:3001/listing/apex", {
+      axios.post("/listing/apex", {
         name: user.displayName,
         game: game,
         rank: rank,

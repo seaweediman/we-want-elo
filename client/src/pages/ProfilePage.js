@@ -21,27 +21,20 @@ function ProfilePage({ match }) {
   const [numberComments, setNumberComments] = useState("");
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:3001/listing/${match.params.id}`)
-      .then((response) => {
-        setAllListing(response.data);
-      });
-    axios
-      .get(`http://localhost:3001/comment/${match.params.id}`)
-      .then((response) => {
-        setAllReviews(response.data);
-      });
+    axios.get(`/listing/${match.params.id}`).then((response) => {
+      setAllListing(response.data);
+    });
+    axios.get(`/comment/${match.params.id}`).then((response) => {
+      setAllReviews(response.data);
+    });
   }, []);
 
   useEffect(() => {
     async function fetchOwner() {
       try {
-        const response = await axios.get(
-          `http://localhost:3001/users/${match.params.id}`,
-          {
-            withCredentials: true,
-          }
-        );
+        const response = await axios.get(`/users/${match.params.id}`, {
+          withCredentials: true,
+        });
         await setOwner(response.data);
         await setProfile(response.data.steamprofile);
       } catch (e) {
@@ -54,7 +47,7 @@ function ProfilePage({ match }) {
   useEffect(() => {
     async function fetchUser() {
       try {
-        const response = await axios.get("http://localhost:3001/user", {
+        const response = await axios.get("/user", {
           withCredentials: true,
         });
         setUser(response.data.user);
@@ -68,9 +61,7 @@ function ProfilePage({ match }) {
   useEffect(() => {
     async function getCount() {
       try {
-        const count = await axios.get(
-          `http://localhost:3001/comment/count/${match.params.id}`
-        );
+        const count = await axios.get(`/comment/count/${match.params.id}`);
         setNumberComments(count.data);
       } catch (e) {
         console.error(e);
@@ -80,19 +71,19 @@ function ProfilePage({ match }) {
   }, []);
 
   const deleteListing = (id) => {
-    axios.delete(`http://localhost:3001/listing/${id}`);
+    axios.delete(`/listing/${id}`);
   };
 
   const updateBio = (id) => {
     window.location.reload();
-    axios.patch(`http://localhost:3001/users/bio/${id}`, {
+    axios.patch(`/users/bio/${id}`, {
       bio: newBio,
     });
   };
 
   const submitComment = () => {
     async function submit() {
-      await axios.post("http://localhost:3001/comment", {
+      await axios.post("/comment", {
         desc: newComment,
         commentername: user.displayName,
         commenterid: user.id,
@@ -105,7 +96,7 @@ function ProfilePage({ match }) {
       const n = Number(numberComments) + 1;
       console.log(n);
       const updatedRating = (owner.rating + Number(newRating)) / n;
-      axios.patch(`http://localhost:3001/users/rating/${match.params.id}`, {
+      axios.patch(`/users/rating/${match.params.id}`, {
         rating: updatedRating,
       });
     }
