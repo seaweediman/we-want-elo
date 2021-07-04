@@ -70,7 +70,7 @@ router.post("/apex", async (req, res) => {
 
 router.get("/", async (req, res) => {
   await Listing.find()
-    .sort({ createdAt: -1 })
+    .sort({ updatedAt: -1 })
     .then((result) => {
       res.send(result);
     })
@@ -83,7 +83,7 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   //For listings of that specific profile
   await Listing.find({ steamid: req.params.id })
-    .sort({ createdAt: -1 })
+    .sort({ updatedAt: -1 })
     .then((result) => {
       res.send(result);
     })
@@ -106,6 +106,19 @@ router.delete("/:id", async (req, res) => {
     const removedPost = await Listing.deleteOne({ _id: req.params.id });
     console.log(req.params.id);
     res.json(removedPost);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
+router.patch("/:id", async (req, res) => {
+  //Bump
+  try {
+    const updatedTime = await Listing.updateOne(
+      { _id: req.params.id },
+      { $set: { updatedAt: Date.now() } }
+    );
+    res.json(updatedTime);
   } catch (err) {
     res.json({ message: err });
   }

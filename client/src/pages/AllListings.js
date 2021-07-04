@@ -2,11 +2,13 @@ import "./Pages.css";
 import { Link, withRouter } from "react-router-dom";
 import React, { useEffect, useState, useHistory } from "react";
 import axios from "axios";
+import CsListing from "../components/CsListing";
+import ApexListing from "../components/ApexListing";
 
 // import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // import { Navigation, Footer, Home } from "../components";
 
-function CreateListing() {
+function FindListing() {
   const [user, setUser] = useState(null);
   const [alluser, setAllUser] = useState([]);
 
@@ -233,121 +235,43 @@ function CreateListing() {
         let userrating = alluser.find(
           (element) => element.steamid === val.steamid
         ).rating;
-        return (
-          <div className="eachListing">
-            <h1 class="inner">
-              <header class="line">
-                <mark class="left"> Name: </mark>
-                <Link
-                  class="nav-link"
-                  to={{
-                    pathname: `/ProfilePage/${val.steamid}`,
-                    state: {
-                      name: val.name.key,
-                      id: val.steamid,
-                    },
-                  }}
-                >
-                  <mark class="right" href="">
-                    {val.name}
-                  </mark>
-                </Link>
-              </header>
-              <header class="line">
-                <mark class="left">Game:</mark>{" "}
-                <mark class="right">{val.game}</mark>
-              </header>
-              <header class="line">
-                <mark class="left">Rank:</mark>{" "}
-                <mark class="right">{val.rank}</mark>
-              </header>
-
-              {val.game === "CS:GO" ? (
-                <div>
-                  <header class="line">
-                    <mark class="left">Playstyle:</mark>{" "}
-                    <mark class="right">{val.playstyle}</mark>
-                  </header>
-                  <header class="line">
-                    <mark class="left">Role:</mark>{" "}
-                    <mark class="right">{val.role}</mark>
-                  </header>
-                </div>
-              ) : (
-                <div>
-                  {" "}
-                  <header class="line">
-                    <mark class="left">Legends:</mark>{" "}
-                    <mark class="right">{val.playstyle}</mark>
-                  </header>
-                  <header class="line">
-                    <mark class="left">Role:</mark>{" "}
-                    <mark class="right">
-                      {val.legend1} {val.legend2} {val.legend3}
-                    </mark>
-                  </header>
-                </div>
-              )}
-              <header class="line">
-                <mark class="left">Description:</mark>{" "}
-                <mark class="right">{val.desc}</mark>
-              </header>
-              <header class="line">
-                <mark class="left">Rating:</mark>{" "}
-                <mark class="right">{userrating}</mark>
-              </header>
-              {user !== undefined && user.id === val.steamid ? (
-                <button
-                  class="deletebtn"
-                  onClick={() => deleteListing(val._id)}
-                >
-                  {" "}
-                  Delete{" "}
-                </button>
-              ) : (
-                ""
-              )}
-              {user !== undefined && user.id !== val.steamid ? (
-                <a href={`steam://friends/add/${val.steamid}`}>
-                  <button class="addfriendbtn">Add Friend</button>
-                </a>
-              ) : (
-                ""
-              )}
-            </h1>
-          </div>
-        );
+        if (searchGame === "CS:GO") {
+          return (
+            <CsListing
+              id={val._id}
+              game={val.game}
+              name={val.name}
+              rank={val.rank}
+              playstyle={val.playstyle}
+              role={val.role}
+              desc={val.desc}
+              steamid={val.steamid}
+              rating={userrating}
+              time={val.updatedAt}
+            />
+          );
+        } else {
+          return (
+            <ApexListing
+              id={val._id}
+              game={val.game}
+              name={val.name}
+              rank={val.rank}
+              playstyle={val.playstyle}
+              legend1={val.legend1}
+              legend2={val.legend2}
+              legend3={val.legend3}
+              desc={val.desc}
+              steamid={val.steamid}
+              rating={userrating}
+              time={val.updatedAt}
+            />
+          );
+        }
       })}
-      {/* to display all listings */}
-      {/* <h1 class='listingsheader'> All listings</h1>
-      <h1>--------------------------------------</h1>
-      {allListing.map((val, key) => {
-        return (
-          <div>
-            <header class='line'>Name : {val.name} </header>
-            <header class='line'>Game : {val.game}</header>
-            <header class='line'> Rank : {val.rank}</header>
-            <header class='line'>Description : {val.desc}</header>
-            <header class='line'>steamID : {val.steamid}</header>
-            {user !== undefined && user.id === val.steamid ? (
-              <button class='deletebtn' onClick={() => deleteListing(val._id)}> Delete </button>
-            ) : (
-              ""
-            )}
-            {user !== undefined && user.id !== val.steamid ? (
-              <a href={`steam://friends/add/${val.steamid}`}>
-                <button class='addfriendbtn'>Add Friend</button>
-              </a>
-            ) : (
-              ""
-            )}
-            <h1>--------------------------------------</h1>
-          </div>
-        );
-      })} */}
       );
     </div>
   );
 }
 
-export default CreateListing;
+export default FindListing;

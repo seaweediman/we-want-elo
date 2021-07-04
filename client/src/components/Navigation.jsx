@@ -92,22 +92,6 @@ function Navigation(props) {
             </li>
             </button>
             </div>
-
-{/* 
-
-            <div className="navcreatelisting">
-            <button class="createlistingnavbtn">
-            <li
-              class={`nav-item  ${
-                props.location.pathname === "/CreateListing" ? "active" : ""
-              }`}
-            >
-              <Link class="nav-link" to="/CreateListing">
-                Create listing
-              </Link>
-            </li>
-            </button>
-            </div> */}
             
             <div class="dropdown">
             <button class="dropbtn"><li>
@@ -121,23 +105,20 @@ function Navigation(props) {
     <a href="/AllListings">Find listings</a>
   </div>
 </div>
-
-
-
-            <div className="navlogin">
-    <button class="loginbtn">
+    
+    <div className="navprofile">
+    <button class="profilebtn">
     <li
       class={`nav-item  ${
-        props.location.pathname === "/LogoutPage" ? "active" : ""
+        props.location.pathname === "/ProfilePage" ? "active" : ""
       }`}
     >
-      <Link class="nav-link" to="/LogoutPage">
-        Logout
+      <Link class="nav-link" to={"/UserSearch"}>
+        User Search
       </Link>
     </li>
     </button>
-    </div>
-    
+    </div>   
 
 
     <div className="navprofile">
@@ -152,10 +133,24 @@ function Navigation(props) {
       </Link>
     </li>
     </button>
-    </div>  
+    </div>
 
+    <div className="navlogin">
+    <button class="loginbtn">
+    <li
+      class={`nav-item  ${
+        props.location.pathname === "/LogoutPage" ? "active" : ""
+      }`}
+    >
+      <Link class="nav-link" to="/LogoutPage">
+        Logout
+      </Link>
+    </li>
+    </button>
+    </div> 
+  </div>
 
-      </div>
+      
 
     </nav>
   </div>

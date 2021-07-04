@@ -2,6 +2,9 @@ import "./Pages.css";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import CsListing from "../components/CsListing";
+import ApexListing from "../components/ApexListing";
+
 <link
   rel="stylesheet"
   href="https://fonts.googleapis.com/css?family=Sofia"
@@ -217,79 +220,45 @@ function ProfilePage({ match }) {
           );
         })}
       </div>
-      <h2 className="ProfileHeader">
-        {/* {!profile ? "" : profile.displayName}'s  */}
-        Listings
-      </h2>
+      <h2 className="ProfileHeader">Listings</h2>
       <br />
       <br />
       {/* <h1 className='line'>.....................................................................................</h1> */}
       {allListing.map((val, key) => {
-        return (
-          <div class="eachListing">
-            <h1 class="inner">
-              <header class="line">
-                <mark class="left">Game:</mark>{" "}
-                <mark class="right">{val.game}</mark>
-              </header>
-              <header class="line">
-                <mark class="left">Rank:</mark>{" "}
-                <mark class="right">{val.rank}</mark>
-              </header>
-              {/* <header class='line'><mark class="left">Playstyle:</mark> <mark class="right">{val.playstyle}</mark></header>
-            <header class='line'><mark class="left">Role:</mark> <mark class="right">{val.role}</mark></header> */}
-              {val.game === "CS:GO" ? (
-                <div>
-                  <header class="line">
-                    <mark class="left">Playstyle:</mark>{" "}
-                    <mark class="right">{val.playstyle}</mark>
-                  </header>
-                  <header class="line">
-                    <mark class="left">Role:</mark>{" "}
-                    <mark class="right">{val.role}</mark>
-                  </header>
-                </div>
-              ) : (
-                <div>
-                  {" "}
-                  <header class="line">
-                    <mark class="left">Legends:</mark>{" "}
-                    <mark class="right">{val.playstyle}</mark>
-                  </header>
-                  <header class="line">
-                    <mark class="left">Role:</mark>{" "}
-                    <mark class="right">
-                      {val.legend1} {val.legend2} {val.legend3}
-                    </mark>
-                  </header>
-                </div>
-              )}
-              <header class="line">
-                <mark class="left">Description:</mark>{" "}
-                <mark class="right">{val.desc}</mark>
-              </header>
-              {user !== undefined && user.id === val.steamid ? (
-                <button
-                  class="deletebtn"
-                  onClick={() => deleteListing(val._id)}
-                >
-                  Delete
-                </button>
-              ) : (
-                ""
-              )}
-              {user !== undefined && user.id !== val.steamid ? (
-                <a href={`steam://friends/add/${val.steamid}`}>
-                  <button class="addfriendbtn">Add Friend</button>
-                </a>
-              ) : (
-                ""
-              )}
-            </h1>
-          </div>
-        );
+        if (val.game === "CS:GO") {
+          return (
+            <CsListing
+              id={val._id}
+              game={val.game}
+              name={val.name}
+              rank={val.rank}
+              playstyle={val.playstyle}
+              role={val.role}
+              desc={val.desc}
+              steamid={val.steamid}
+              rating={owner.rating}
+              time={val.updatedAt}
+            />
+          );
+        } else {
+          return (
+            <ApexListing
+              id={val._id}
+              game={val.game}
+              name={val.name}
+              rank={val.rank}
+              playstyle={val.playstyle}
+              legend1={val.legend1}
+              legend2={val.legend2}
+              legend3={val.legend3}
+              desc={val.desc}
+              steamid={val.steamid}
+              rating={owner.rating}
+              time={val.updatedAt}
+            />
+          );
+        }
       })}
-      <p></p>
     </div>
   );
 }

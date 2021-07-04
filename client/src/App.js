@@ -9,6 +9,7 @@ import LogoutPage from "./pages/LogoutPage";
 import AllListings from "./pages/AllListings";
 import About from "./pages/About";
 import { CSSTransition } from "react-transition-group";
+import UserSearch from "./pages/UserSearch";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/ProfilePage/:id" exact component={ProfilePage} />
           <Route path="/AllListings" exact component={AllListings} />
           <Route path="/About" exact component={About} />
+          <Route path="/UserSearch" exact component={UserSearch} />
         </Switch>
         <Footer />
       </Router>

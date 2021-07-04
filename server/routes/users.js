@@ -39,6 +39,8 @@ router.get("/:id", async (req, res) => {
 
 router.get("/", async (req, res) => {
   await User.find()
+    .collation({ locale: "en" })
+    .sort({ "steamprofile.displayName": 1 })
     .then((result) => {
       res.send(result);
     })
