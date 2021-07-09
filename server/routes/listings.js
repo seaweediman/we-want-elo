@@ -92,6 +92,17 @@ router.get("/:id", async (req, res) => {
     });
 });
 
+router.get("/update/:id", async (req, res) => {
+  //get specific listing
+  await Listing.find({ _id: req.params.id })
+    .then((result) => {
+      res.send(result[0]);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 // Example
 // useEffect(() => {
 //   axios.get(`http://localhost:3001/listing/${steamId}`).then((response) => {
@@ -119,6 +130,64 @@ router.patch("/:id", async (req, res) => {
       { $set: { updatedAt: Date.now() } }
     );
     res.json(updatedTime);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
+router.patch("/cs/:id", async (req, res) => {
+  try {
+    const id = req.body.id;
+    const rank = req.body.rank;
+    const rankgroup = req.body.rankgroup;
+    const playstyle = req.body.playstyle;
+    const role = req.body.role;
+    const desc = req.body.desc;
+    const updatedListing = await Listing.updateOne(
+      { _id: req.params.id },
+      {
+        $set: {
+          updatedAt: Date.now(),
+          rank: rank,
+          rankgroup: rankgroup,
+          playstyle: playstyle,
+          role: role,
+          desc: desc,
+        },
+      }
+    );
+    res.json(updatedListing);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
+router.patch("/apex/:id", async (req, res) => {
+  try {
+    const rank = req.body.rank;
+    const rankgroup = req.body.rankgroup;
+    const playstyle = req.body.playstyle;
+    const legend1 = req.body.legend1;
+    const legend2 = req.body.legend2;
+    const legend3 = req.body.legend3;
+    const desc = req.body.desc;
+
+    const updatedListing = await Listing.updateOne(
+      { _id: req.params.id },
+      {
+        $set: {
+          updatedAt: Date.now(),
+          rank: rank,
+          rankgroup: rankgroup,
+          playstyle: playstyle,
+          legend1: legend1,
+          legend2: legend2,
+          legend3: legend3,
+          desc: desc,
+        },
+      }
+    );
+    res.json(updatedListing);
   } catch (err) {
     res.json({ message: err });
   }

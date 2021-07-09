@@ -1,6 +1,5 @@
 import "./Pages.css";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import CsListing from "../components/CsListing";
 import ApexListing from "../components/ApexListing";
@@ -73,11 +72,6 @@ function ProfilePage({ match }) {
     }
     getCount();
   }, []);
-
-  const deleteListing = (id) => {
-    axios.delete(`/listing/${id}`);
-    window.location.reload();
-  };
 
   const updateBio = (id) => {
     axios.patch(`/users/bio/${id}`, {

@@ -89,10 +89,24 @@ function ApexListing(props) {
           </mark>
         </header>
         {user !== undefined && user.id === props.steamid ? (
-          <button class="deletebtn" onClick={() => deleteListing(props.id)}>
-            {" "}
-            Delete{" "}
-          </button>
+          <div>
+            <button class="deletebtn" onClick={() => deleteListing(props.id)}>
+              {" "}
+              Delete{" "}
+            </button>
+            <Link
+              to={{
+                pathname: `/UpdateListing/${props.id}`,
+                state: {
+                  name: props.name.key,
+                  id: props.steamid,
+                },
+              }}
+              class="deletebtn"
+            >
+              Update
+            </Link>
+          </div>
         ) : (
           ""
         )}

@@ -1,6 +1,5 @@
 import "./Pages.css";
-import { Link, withRouter } from "react-router-dom";
-import React, { useEffect, useState, useHistory } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CsListing from "../components/CsListing";
 import ApexListing from "../components/ApexListing";
