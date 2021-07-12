@@ -25,6 +25,27 @@
   background: blue;
 }
 
+.deletecommentbtn {
+  font-size: 20px;
+  font-family: "VT323", monospace;
+  background-color: #5c58bb;
+  border: none;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  transition-duration: 0.5s;
+  transition-property: box-shadow;
+  transform: translateX(39px) translateY(-20px);
+  cursor: pointer;
+}
+
+.deletecommentbtn:hover {
+  color: blanchedalmond;
+  background: blue;
+}
+
 .addfriendbtn {
   font-size: 20px;
   font-family: "VT323", monospace;
@@ -42,6 +63,27 @@
 }
 
 .addfriendbtn:hover {
+  color: blanchedalmond;
+  background: blue;
+}
+
+.bumpbtn {
+  font-size: 20px;
+  font-family: "VT323", monospace;
+  background-color: rgb(47, 255, 116);
+  border: none;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  transition-duration: 0.5s;
+  transition-property: box-shadow;
+  transform: translateY(10px);
+  cursor: pointer;
+}
+
+.bumpbtn:hover {
   color: blanchedalmond;
   background: blue;
 }

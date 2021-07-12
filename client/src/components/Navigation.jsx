@@ -110,7 +110,7 @@ function Navigation(props) {
     <button class="profilebtn">
     <li
       class={`nav-item  ${
-        props.location.pathname === "/ProfilePage" ? "active" : ""
+        props.location.pathname === "/UserSearch" ? "active" : ""
       }`}
     >
       <Link class="nav-link" to={"/UserSearch"}>

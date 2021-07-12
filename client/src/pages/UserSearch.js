@@ -31,7 +31,7 @@ function UserSearch() {
       ></input>
       {alluser
         .filter((val) => {
-          if (searchTerm == "") {
+          if (searchTerm === "") {
             return val;
           } else if (
             val.steamprofile.displayName

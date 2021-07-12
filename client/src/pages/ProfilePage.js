@@ -21,6 +21,7 @@ function ProfilePage({ match }) {
   const [changeBio, setChangeBio] = useState(false);
   const [addComment, setAddComment] = useState(false);
   const [numberComments, setNumberComments] = useState("");
+  const [reviewedAlready, setreviewedAlready] = useState(false);
 
   useEffect(() => {
     axios.get(`/listing/${match.params.id}`).then((response) => {
@@ -52,7 +53,6 @@ function ProfilePage({ match }) {
         const response = await axios.get("/user", {
           withCredentials: true,
         });
-        console.log(response.data.user);
         setUser(response.data.user);
       } catch (e) {
         console.error(e);
@@ -65,12 +65,34 @@ function ProfilePage({ match }) {
     async function getCount() {
       try {
         const count = await axios.get(`/comment/count/${match.params.id}`);
+        console.log(count);
         setNumberComments(count.data);
       } catch (e) {
         console.error(e);
       }
     }
     getCount();
+  }, []);
+
+  useEffect(() => {
+    async function alreadyReviewed() {
+      try {
+        const response = await axios.get("/user", {
+          withCredentials: true,
+        });
+        const comment = await axios.get(
+          `/comment/${match.params.id}/${response.data.user.id}`
+        );
+        if (comment.data.length === 0) {
+          setreviewedAlready(false);
+        } else {
+          setreviewedAlready(true);
+        }
+      } catch (e) {
+        console.error(e);
+      }
+    }
+    alreadyReviewed();
   }, []);
 
   const updateBio = (id) => {
@@ -92,13 +114,28 @@ function ProfilePage({ match }) {
     }
 
     async function updateRating() {
-      const n = Number(numberComments);
+      const n = allReviews.length;
       const updatedRating = (owner.rating * n + Number(newRating)) / (n + 1);
       axios.patch(`/users/rating/${match.params.id}`, {
         rating: updatedRating,
       });
     }
     submit();
+    updateRating();
+    window.location.reload();
+  };
+
+  const deleteComment = (id, oldrating) => {
+    async function updateRating() {
+      const n = allReviews.length;
+      const updatedRating =
+        n === 1 ? 0 : (owner.rating * n - oldrating) / (n - 1);
+      await axios.patch(`/users/rating/${match.params.id}`, {
+        rating: updatedRating,
+      });
+      axios.delete(`/comment/${id}`);
+    }
+
     updateRating();
     window.location.reload();
   };
@@ -154,12 +191,11 @@ function ProfilePage({ match }) {
 
         <h2 class="Rating">Rating: </h2>
         <h2 class="RatingDesc">
-          {owner.rating}/5 ({numberComments} reviews)
+          {Number(owner.rating)}/5 ({allReviews.length} reviews)
         </h2>
         <h2 class="Review">{!profile ? "" : profile.displayName}'s reviews:</h2>
         <br />
         <br />
-        {/* {numberComments === 0 ? none :  */}
         {!user ? (
           ""
         ) : owner.steamid === user.id ? (
@@ -181,6 +217,9 @@ function ProfilePage({ match }) {
                 setNewRating(event.target.value);
               }}
             >
+              <option value="" disabled selected hidden>
+                Select a rating
+              </option>
               <option value="1"> 1 </option>
               <option value="2"> 2 </option>
               <option value="3"> 3 </option>
@@ -193,6 +232,8 @@ function ProfilePage({ match }) {
               </button>
             </div>
           </div>
+        ) : reviewedAlready ? (
+          ""
         ) : (
           <div className="AddReviewButton2">
             <button className="Reviewbtn2" onClick={() => setAddComment(true)}>
@@ -210,6 +251,18 @@ function ProfilePage({ match }) {
                 <header class="ReviewLine">Rating: {val.rating}/5</header>
                 <header class="ReviewLine">Description: {val.desc}</header>
               </header>
+              {!user ? (
+                ""
+              ) : val.commenterid === user.id ? (
+                <button
+                  className="deletecommentbtn"
+                  onClick={() => deleteComment(val._id, val.rating)}
+                >
+                  Delete Review
+                </button>
+              ) : (
+                ""
+              )}
             </div>
           );
         })}

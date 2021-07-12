@@ -39,6 +39,21 @@ router.get("/:id", async (req, res) => {
     });
 });
 
+router.get("/:id/:commenterid", async (req, res) => {
+  //For comments of that specific profile
+  await Comment.find({
+    profileid: req.params.id,
+    commenterid: req.params.commenterid,
+  })
+    .sort({ createdAt: -1 })
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 router.get("/count/:id", async (req, res) => {
   //For comments of that specific profile
   await Comment.find({ profileid: req.params.id })

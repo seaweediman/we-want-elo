@@ -10,7 +10,6 @@ function CsListing(props) {
         const response = await axios.get("/user", {
           withCredentials: true,
         });
-        console.log(props);
         setUser(response.data.user);
       } catch (e) {
         console.error(e);
@@ -27,6 +26,33 @@ function CsListing(props) {
   const bumpListing = (id) => {
     axios.patch(`/listing/${id}`);
     window.location.reload();
+  };
+
+  const timeSince = (date) => {
+    var seconds = Math.floor((new Date() - date) / 1000);
+
+    var interval = seconds / 31536000;
+
+    if (interval > 1) {
+      return Math.floor(interval) + " years";
+    }
+    interval = seconds / 2592000;
+    if (interval > 1) {
+      return Math.floor(interval) + " months";
+    }
+    interval = seconds / 86400;
+    if (interval > 1) {
+      return Math.floor(interval) + " days";
+    }
+    interval = seconds / 3600;
+    if (interval > 1) {
+      return Math.floor(interval) + " hours";
+    }
+    interval = seconds / 60;
+    if (interval > 1) {
+      return Math.floor(interval) + " minutes";
+    }
+    return Math.floor(seconds) + " seconds";
   };
 
   return (
@@ -80,7 +106,8 @@ function CsListing(props) {
           <mark class="right">
             {new Date(props.time).toLocaleDateString()}
             <br />
-            {new Date(props.time).toLocaleTimeString()}
+            {new Date(props.time).toLocaleTimeString()} (
+            {timeSince(new Date(props.time))} ago)
           </mark>
         </header>
         {user !== undefined && user.id === props.steamid ? (
@@ -109,7 +136,7 @@ function CsListing(props) {
         user.id === props.steamid &&
         Math.floor((new Date() - new Date(props.time)) / (1000 * 3600 * 24)) >=
           3 ? (
-          <button class="deletebtn" onClick={() => bumpListing(props.id)}>
+          <button class="bumpbtn" onClick={() => bumpListing(props.id)}>
             Bump
           </button>
         ) : (
