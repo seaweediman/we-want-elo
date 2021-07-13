@@ -78,7 +78,7 @@ function UpdateListing({ match }) {
       setLegend3(response.data.legend3);
       setRole(response.data.role);
     });
-  }, []);
+  }, [match.params.id]);
 
   const UpdateListing = () => {
     if (game === "CS:GO") {

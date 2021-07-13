@@ -128,7 +128,7 @@ function Navigation(props) {
         props.location.pathname === "/ProfilePage" ? "active" : ""
       }`}
     >
-      <Link class="nav-link" to={`/ProfilePage/${user.id}`}>
+      <Link class="nav-link" to={`/ProfilePage/${user.id}` }>
         Profile
       </Link>
     </li>

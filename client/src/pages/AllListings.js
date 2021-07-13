@@ -52,10 +52,6 @@ function FindListing() {
     fetchUser();
   }, []);
 
-  const deleteListing = (id) => {
-    axios.delete(`/listing/${id}`);
-  };
-
   const filterListings = (val) => {
     if (
       val.game === searchGame &&
@@ -231,6 +227,7 @@ function FindListing() {
       <br />
       <br />
       {allListing.filter(filterListings).map((val, key) => {
+        console.log(val);
         let userrating = alluser.find(
           (element) => element.steamid === val.steamid
         ).rating;

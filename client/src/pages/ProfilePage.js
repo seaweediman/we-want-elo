@@ -1,5 +1,6 @@
 import "./Pages.css";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import CsListing from "../components/CsListing";
 import ApexListing from "../components/ApexListing";
@@ -20,7 +21,6 @@ function ProfilePage({ match }) {
   const [newRating, setNewRating] = useState("");
   const [changeBio, setChangeBio] = useState(false);
   const [addComment, setAddComment] = useState(false);
-  const [numberComments, setNumberComments] = useState("");
   const [reviewedAlready, setreviewedAlready] = useState(false);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ function ProfilePage({ match }) {
     axios.get(`/comment/${match.params.id}`).then((response) => {
       setAllReviews(response.data);
     });
-  }, []);
+  }, [match.params.id]);
 
   useEffect(() => {
     async function fetchOwner() {
@@ -45,7 +45,7 @@ function ProfilePage({ match }) {
       }
     }
     fetchOwner();
-  }, []);
+  }, [match.params.id]);
 
   useEffect(() => {
     async function fetchUser() {
@@ -59,19 +59,6 @@ function ProfilePage({ match }) {
       }
     }
     fetchUser();
-  }, []);
-
-  useEffect(() => {
-    async function getCount() {
-      try {
-        const count = await axios.get(`/comment/count/${match.params.id}`);
-        console.log(count);
-        setNumberComments(count.data);
-      } catch (e) {
-        console.error(e);
-      }
-    }
-    getCount();
   }, []);
 
   useEffect(() => {
@@ -93,7 +80,7 @@ function ProfilePage({ match }) {
       }
     }
     alreadyReviewed();
-  }, []);
+  }, [match.params.id]);
 
   const updateBio = (id) => {
     axios.patch(`/users/bio/${id}`, {
@@ -246,7 +233,21 @@ function ProfilePage({ match }) {
             <div>
               <header class="ReviewContents">
                 <header class="ReviewLineHeader">
-                  Review by {val.commentername}:
+                  <Link
+                    class="nav-link"
+                    to={{
+                      pathname: `/ProfilePage/${val.commenterid}`,
+                      state: {
+                        name: val.commentername.key,
+                        id: val.commenterid,
+                      },
+                    }}
+                  >
+                    <mark class="right" href="">
+                      {val.commentername}
+                    </mark>
+                  </Link>
+                  :
                 </header>
                 <header class="ReviewLine">Rating: {val.rating}/5</header>
                 <header class="ReviewLine">Description: {val.desc}</header>
