@@ -271,7 +271,6 @@ function ProfilePage({ match }) {
       <h2 className="ProfileHeader">Listings</h2>
       <br />
       <br />
-      {/* <h1 className='line'>.....................................................................................</h1> */}
       {allListing.map((val, key) => {
         if (val.game === "CS:GO") {
           return (

@@ -4,25 +4,130 @@
 
 /* but1 represents buttons for 'add friend' and 'delete listing' */
 
-.deletebtn {
-  font-size: 20px;
-  font-family: "VT323", monospace;
+
+.btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 5px;
+}
+
+.updatebtn {
+  color: gold;
+  font-size: 25px;
+  font-family: 'Tourney', cursive;
   background-color: #5c58bb;
+  /* border: none; */
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  transition-duration: 0.1s;
+  cursor: pointer;
+}
+
+.updatebtn:hover{
+
+  color: #5c58bb;
+  opacity: 1px;
+  background-image:    linear-gradient(
+     to right, 
+     black 1%,
+     white 1%,
+     lime 1%
+     /* aqua 100% */
+
+   );
+   animation:slidebg 1s infinite;
+   animation-duration: infinite;
+}
+@keyframes slidebg {
+  to {
+    background-position:100000vw;
+  }
+}
+
+
+
+
+.deletebtn {
+  color: gold;
+  font-size: 25px;
+  font-family: 'Tourney', cursive;
+
+  background-color: #5c58bb;
+
   border: none;
   padding: 5px 5px;
   text-align: center;
   text-decoration: none;
   border-radius: 5px;
   display: inline-block;
-  transition-duration: 0.5s;
-  transition-property: box-shadow;
-  transform: translateY(10px);
+  transition-duration: 0.1s;
   cursor: pointer;
 }
 
-.deletebtn:hover {
-  color: blanchedalmond;
-  background: blue;
+.deletebtn:hover{
+  color: white;
+  opacity: 1px;
+
+  background-image:    linear-gradient(
+     to right, 
+     black 1%,
+     red 1%
+     /* aqua 100% */
+
+   );
+   animation:slidebg 1s infinite;
+   animation-duration: infinite;
+}
+@keyframes slidebg {
+  to {
+    background-position:100000vw;
+  }
+}
+
+.bumpbtn {
+  border-color: yellow ;
+  border-width: 1px;
+  border-style: dashed;
+  color: beige;
+  font-size: 25px;
+  font-family: 'Tourney', cursive;
+  background-color: darkgoldenrod;
+  /* background-color: #5c58bb; */
+
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  transition-duration: 0.1s;
+
+  cursor: pointer;
+}
+
+.bumpbtn:hover{
+  border-color: black ;
+  border-style: solid;
+
+  color: black;
+  opacity: 1px;
+  background-image:    linear-gradient(
+     to right, 
+     black 1%,
+     yellow 1%
+     /* aqua 100% */
+
+   );
+   animation:slidebg 1s infinite;
+   animation-duration: infinite;
+}
+@keyframes slidebg {
+  to {
+    background-position:100000vw;
+  }
 }
 
 .deletecommentbtn {
@@ -58,7 +163,7 @@
   display: inline-block;
   transition-duration: 0.5s;
   transition-property: box-shadow;
-  transform: translateY(40px);
+  /* transform: translateY(40px); */
   cursor: pointer;
 }
 
@@ -67,26 +172,7 @@
   background: blue;
 }
 
-.bumpbtn {
-  font-size: 20px;
-  font-family: "VT323", monospace;
-  background-color: rgb(47, 255, 116);
-  border: none;
-  padding: 5px 5px;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 5px;
-  display: inline-block;
-  transition-duration: 0.5s;
-  transition-property: box-shadow;
-  transform: translateY(10px);
-  cursor: pointer;
-}
 
-.bumpbtn:hover {
-  color: blanchedalmond;
-  background: blue;
-}
 
 .createlistingbtn {
   color: beige;
@@ -244,7 +330,8 @@ mark.right {
 }
 
 .inner {
-  padding: 30px 50px;
+  padding: 15px 30px;
+  padding-bottom: 0px;
 }
 
 .name {
@@ -440,7 +527,7 @@ select {
 /* update bio button  */
 
 .Biobtn2 {
-  color: rgba(245, 245, 220, 0.663);
+  color: rgb(202, 202, 183);
   background-color: #131812;
   font-family: "VT323", monospace;
   font-size: 20px;

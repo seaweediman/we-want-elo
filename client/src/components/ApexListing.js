@@ -115,12 +115,17 @@ function ApexListing(props) {
             {timeSince(new Date(props.time))} ago)
           </mark>
         </header>
+        <br />
+        <btn class="btns">
         {user !== undefined && user.id === props.steamid ? (
-          <div>
-            <button class="deletebtn" onClick={() => deleteListing(props.id)}>
+            <Link class="deletebtn" onClick={() => deleteListing(props.id)}>
               {" "}
               Delete{" "}
-            </button>
+            </Link>
+        ) : (
+          ""
+        )}
+          {user !== undefined && user.id === props.steamid ? (
             <Link
               to={{
                 pathname: `/UpdateListing/${props.id}`,
@@ -129,24 +134,22 @@ function ApexListing(props) {
                   id: props.steamid,
                 },
               }}
-              class="deletebtn"
+              class="updatebtn"
             >
               Update
             </Link>
-          </div>
         ) : (
           ""
         )}
         {user !== undefined &&
-        user.id === props.steamid &&
-        Math.floor((new Date() - new Date(props.time)) / (1000 * 3600 * 24)) >=
-          3 ? (
-          <button class="deletebtn" onClick={() => bumpListing(props.id)}>
+        user.id === props.steamid ? (
+          <Link class="bumpbtn" onClick={() => bumpListing(props.id)}>
             Bump
-          </button>
+          </Link>
         ) : (
           ""
         )}
+       </btn>
         {user !== undefined && user.id !== props.steamid ? (
           <a href={`steam://friends/add/${props.steamid}`}>
             <button class="addfriendbtn">Add Friend</button>
