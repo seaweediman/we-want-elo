@@ -62,6 +62,21 @@ function UserSearch() {
           );
         })}
       ;
+      {alluser.filter((val) => {
+        if (searchTerm === "") {
+          return val;
+        } else if (
+          val.steamprofile.displayName
+            .toLowerCase()
+            .includes(searchTerm.toLowerCase())
+        ) {
+          return val;
+        }
+      }).length === 0 ? (
+        <label class="errormsg">No user found</label>
+      ) : (
+        ""
+      )}
     </div>
   );
 }

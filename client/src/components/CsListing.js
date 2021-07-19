@@ -57,6 +57,16 @@ function CsListing(props) {
 
   return (
     <div class="eachListing">
+      {user !== undefined &&
+      user.id === props.steamid &&
+      Math.floor((new Date() - new Date(props.time)) / (1000 * 3600 * 24)) <
+        3 ? (
+        <div class="help-tip">
+          <p>You can only bump after 3 days after it was last updated</p>
+        </div>
+      ) : (
+        ""
+      )}
       <h1 class="inner">
         <header class="line">
           <mark class="left"> Name: </mark>
@@ -112,14 +122,14 @@ function CsListing(props) {
         </header>
         <br />
         <btn class="btns">
-        {user !== undefined && user.id === props.steamid ? (
+          {user !== undefined && user.id === props.steamid ? (
             <Link class="deletebtn" onClick={() => deleteListing(props.id)}>
               {" "}
               Delete{" "}
             </Link>
-        ) : (
-          ""
-        )}
+          ) : (
+            ""
+          )}
           {user !== undefined && user.id === props.steamid ? (
             <Link
               to={{
@@ -133,21 +143,21 @@ function CsListing(props) {
             >
               Update
             </Link>
-        ) : (
-          ""
-        )}
-        {user !== undefined &&
-        user.id === props.steamid &&
-        Math.floor((new Date() - new Date(props.time)) / (1000 * 3600 * 24)) >=
-          3 ? (
-          <Link class="bumpbtn" onClick={() => bumpListing(props.id)}>
-            Bump
-          </Link>
-        ) : (
-          ""
-        )}
-
-       </btn>
+          ) : (
+            ""
+          )}
+          {user !== undefined &&
+          user.id === props.steamid &&
+          Math.floor(
+            (new Date() - new Date(props.time)) / (1000 * 3600 * 24)
+          ) >= 3 ? (
+            <Link class="bumpbtn" onClick={() => bumpListing(props.id)}>
+              Bump
+            </Link>
+          ) : (
+            ""
+          )}
+        </btn>
         {user !== undefined && user.id !== props.steamid ? (
           <a href={`steam://friends/add/${props.steamid}`}>
             <button class="addfriendbtn">Add Friend</button>

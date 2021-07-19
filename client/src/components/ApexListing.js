@@ -57,6 +57,20 @@ function ApexListing(props) {
 
   return (
     <div className="eachListing">
+      {user !== undefined &&
+      user.id === props.steamid &&
+      Math.floor((new Date() - new Date(props.time)) / (1000 * 3600 * 24)) <
+        3 ? (
+        <div class="help-tip">
+          <p>
+            This is the inline help tip! It can contain all kinds of HTML. Style
+            it as you please.
+          </p>
+        </div>
+      ) : (
+        ""
+      )}
+
       <h1 class="inner">
         <header class="line">
           <mark class="left"> Name: </mark>
@@ -117,14 +131,14 @@ function ApexListing(props) {
         </header>
         <br />
         <btn class="btns">
-        {user !== undefined && user.id === props.steamid ? (
+          {user !== undefined && user.id === props.steamid ? (
             <Link class="deletebtn" onClick={() => deleteListing(props.id)}>
               {" "}
               Delete{" "}
             </Link>
-        ) : (
-          ""
-        )}
+          ) : (
+            ""
+          )}
           {user !== undefined && user.id === props.steamid ? (
             <Link
               to={{
@@ -138,18 +152,17 @@ function ApexListing(props) {
             >
               Update
             </Link>
-        ) : (
-          ""
-        )}
-        {user !== undefined &&
-        user.id === props.steamid ? (
-          <Link class="bumpbtn" onClick={() => bumpListing(props.id)}>
-            Bump
-          </Link>
-        ) : (
-          ""
-        )}
-       </btn>
+          ) : (
+            ""
+          )}
+          {user !== undefined && user.id === props.steamid ? (
+            <Link class="bumpbtn" onClick={() => bumpListing(props.id)}>
+              Bump
+            </Link>
+          ) : (
+            ""
+          )}
+        </btn>
         {user !== undefined && user.id !== props.steamid ? (
           <a href={`steam://friends/add/${props.steamid}`}>
             <button class="addfriendbtn">Add Friend</button>

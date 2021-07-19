@@ -127,7 +127,17 @@ function ProfilePage({ match }) {
     window.location.reload();
   };
 
-  return (
+  return user === undefined || owner === [] ? (
+    <div className="loginStatus">
+      <br />
+      <br />
+      <br />
+      <br />
+      <label class="loadingmsg">
+        Loading....Please wait. If you are not logged in, please login.
+      </label>
+    </div>
+  ) : (
     <div>
       <br />
       <br />
@@ -139,6 +149,13 @@ function ProfilePage({ match }) {
       <header class="ProfileHeader">
         {!profile ? "" : profile.displayName}'s profile
       </header>
+      {user.id !== match.params.id ? (
+        <a href={`steam://friends/add/${match.params.id}`}>
+          <button class="addfriendbtn">Add Friend</button>
+        </a>
+      ) : (
+        ""
+      )}
       <br />
       <br />
       <div className="ProfileContents">

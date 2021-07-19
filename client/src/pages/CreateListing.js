@@ -15,6 +15,7 @@ function CreateListing() {
   const [legend1, setLegend1] = useState("");
   const [legend2, setLegend2] = useState("");
   const [legend3, setLegend3] = useState("");
+  const [clicked, setClicked] = useState(false);
 
   const csgoSilver = [
     "Silver I",
@@ -65,33 +66,53 @@ function CreateListing() {
     fetchUser();
   }, []);
 
-  const CreateListing = () => {
+  const filledup = () => {
     if (game === "CS:GO") {
-      axios.post("/listing/cs", {
-        name: user.displayName,
-        game: game,
-        rank: rank,
-        rankgroup: getGroup(rank),
-        playstyle: playstyle,
-        role: role,
-        desc: desc,
-        steamid: user.id,
-      });
-    } else {
-      axios.post("/listing/apex", {
-        name: user.displayName,
-        game: game,
-        rank: rank,
-        rankgroup: getGroup(rank),
-        playstyle: playstyle,
-        legend1: legend1,
-        legend2: legend2,
-        legend3: legend3,
-        desc: desc,
-        steamid: user.id,
-      });
+      return rank !== "" && playstyle !== "" && role !== "";
+    } else if (game === "Apex") {
+      return (
+        rank !== "" &&
+        playstyle !== "" &&
+        legend1 !== "" &&
+        legend2 !== "" &&
+        legend3 !== ""
+      );
     }
-    window.location.reload();
+    return false;
+  };
+
+  const CreateListing = () => {
+    if (filledup()) {
+      if (game === "CS:GO") {
+        axios.post("/listing/cs", {
+          name: user.displayName,
+          game: game,
+          rank: rank,
+          rankgroup: getGroup(rank),
+          playstyle: playstyle,
+          role: role,
+          desc: desc,
+          steamid: user.id,
+        });
+        window.location.reload();
+      } else {
+        axios.post("/listing/apex", {
+          name: user.displayName,
+          game: game,
+          rank: rank,
+          rankgroup: getGroup(rank),
+          playstyle: playstyle,
+          legend1: legend1,
+          legend2: legend2,
+          legend3: legend3,
+          desc: desc,
+          steamid: user.id,
+        });
+        window.location.reload();
+      }
+    } else {
+      setClicked(true);
+    }
   };
 
   const getGroup = (rank) => {
@@ -126,7 +147,17 @@ function CreateListing() {
     }
   };
 
-  return (
+  return !user ? (
+    <div className="loginStatus">
+      <br />
+      <br />
+      <br />
+      <br />
+      <label class="loadingmsg">
+        Loading....Please wait. If you are not logged in, please login.
+      </label>
+    </div>
+  ) : (
     <div className="App">
       <header className="createlistingheader">Create your listing</header>
       <div class="boxes">
@@ -136,6 +167,7 @@ function CreateListing() {
             className="dropdownGame"
             onChange={(event) => {
               setGame(event.target.value);
+              setClicked(false);
             }}
           >
             <option value="" disabled selected hidden>
@@ -357,6 +389,11 @@ function CreateListing() {
               setDesc(event.target.value);
             }}
           />
+          {!filledup() && clicked ? (
+            <label class="errormsg">Error: Please fill in all fields</label>
+          ) : (
+            ""
+          )}
         </div>
 
         <button class="createlistingbtn" onClick={CreateListing}>

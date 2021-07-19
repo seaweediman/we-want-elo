@@ -4,7 +4,6 @@
 
 /* but1 represents buttons for 'add friend' and 'delete listing' */
 
-
 .btns {
   display: flex;
   flex-direction: row;
@@ -15,7 +14,7 @@
 .updatebtn {
   color: gold;
   font-size: 25px;
-  font-family: 'Tourney', cursive;
+  font-family: "Tourney", cursive;
   background-color: #5c58bb;
   /* border: none; */
   padding: 5px 5px;
@@ -27,34 +26,28 @@
   cursor: pointer;
 }
 
-.updatebtn:hover{
-
+.updatebtn:hover {
   color: #5c58bb;
   opacity: 1px;
-  background-image:    linear-gradient(
-     to right, 
-     black 1%,
-     white 1%,
-     lime 1%
-     /* aqua 100% */
-
-   );
-   animation:slidebg 1s infinite;
-   animation-duration: infinite;
+  background-image: linear-gradient(
+    to right,
+    black 1%,
+    white 1%,
+    lime 1% /* aqua 100% */
+  );
+  animation: slidebg 1s infinite;
+  animation-duration: infinite;
 }
 @keyframes slidebg {
   to {
-    background-position:100000vw;
+    background-position: 100000vw;
   }
 }
-
-
-
 
 .deletebtn {
   color: gold;
   font-size: 25px;
-  font-family: 'Tourney', cursive;
+  font-family: "Tourney", cursive;
 
   background-color: #5c58bb;
 
@@ -68,33 +61,27 @@
   cursor: pointer;
 }
 
-.deletebtn:hover{
+.deletebtn:hover {
   color: white;
   opacity: 1px;
 
-  background-image:    linear-gradient(
-     to right, 
-     black 1%,
-     red 1%
-     /* aqua 100% */
-
-   );
-   animation:slidebg 1s infinite;
-   animation-duration: infinite;
+  background-image: linear-gradient(to right, black 1%, red 1% /* aqua 100% */);
+  animation: slidebg 1s infinite;
+  animation-duration: infinite;
 }
 @keyframes slidebg {
   to {
-    background-position:100000vw;
+    background-position: 100000vw;
   }
 }
 
 .bumpbtn {
-  border-color: yellow ;
+  border-color: yellow;
   border-width: 1px;
   border-style: dashed;
   color: beige;
   font-size: 25px;
-  font-family: 'Tourney', cursive;
+  font-family: "Tourney", cursive;
   background-color: darkgoldenrod;
   /* background-color: #5c58bb; */
 
@@ -108,25 +95,23 @@
   cursor: pointer;
 }
 
-.bumpbtn:hover{
-  border-color: black ;
+.bumpbtn:hover {
+  border-color: black;
   border-style: solid;
 
   color: black;
   opacity: 1px;
-  background-image:    linear-gradient(
-     to right, 
-     black 1%,
-     yellow 1%
-     /* aqua 100% */
-
-   );
-   animation:slidebg 1s infinite;
-   animation-duration: infinite;
+  background-image: linear-gradient(
+    to right,
+    black 1%,
+    yellow 1% /* aqua 100% */
+  );
+  animation: slidebg 1s infinite;
+  animation-duration: infinite;
 }
 @keyframes slidebg {
   to {
-    background-position:100000vw;
+    background-position: 100000vw;
   }
 }
 
@@ -152,7 +137,7 @@
 }
 
 .addfriendbtn {
-  font-size: 20px;
+  /* font-size: 20px;
   font-family: "VT323", monospace;
   background-color: rgb(47, 255, 116);
   border: none;
@@ -163,7 +148,24 @@
   display: inline-block;
   transition-duration: 0.5s;
   transition-property: box-shadow;
-  /* transform: translateY(40px); */
+  /* transform: translateY(40px); 
+  cursor: pointer; */
+  border-color: yellowgreen;
+  border-width: 1px;
+  border-style: dashed;
+  color: beige;
+  font-size: 25px;
+  font-family: "Tourney", cursive;
+  background-color: green;
+  /* background-color: #5c58bb; */
+
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  transition-duration: 0.1s;
+
   cursor: pointer;
 }
 
@@ -171,8 +173,6 @@
   color: blanchedalmond;
   background: blue;
 }
-
-
 
 .createlistingbtn {
   color: beige;
@@ -692,4 +692,99 @@ textarea::placeholder {
   font-family: "Righteous", cursive;
   color: #93c8c4;
   background: #2c2e3b;
+}
+
+.errormsg {
+  font-family: "Righteous", cursive;
+  color: rgb(224, 51, 51);
+  size: 50px;
+}
+
+.help-tip {
+  position: absolute;
+  text-align: center;
+  right: 60px;
+  transform: translateY(10px);
+  background-color: #bcdbea;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+  line-height: 26px;
+  cursor: default;
+}
+
+.help-tip:before {
+  content: "?";
+  font-weight: bold;
+  color: #fff;
+}
+
+.help-tip:hover p {
+  display: block;
+  transform-origin: 100% 0%;
+
+  -webkit-animation: fadeIn 0.3s ease-in-out;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.help-tip p {
+  /* The tooltip */
+  display: none;
+  text-align: left;
+  background-color: #1e2021;
+  padding: 20px;
+  width: 300px;
+  position: absolute;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  right: -4px;
+  color: #fff;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.help-tip p:before {
+  /* The pointer of the tooltip */
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-bottom-color: #1e2021;
+  right: 10px;
+  top: -12px;
+}
+
+.help-tip p:after {
+  /* Prevents the tooltip from being hidden */
+  width: 100%;
+  height: 40px;
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 0;
+}
+
+/* CSS animation */
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+
+  100% {
+    opacity: 100%;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
 }

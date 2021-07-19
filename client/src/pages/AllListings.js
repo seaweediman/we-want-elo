@@ -80,7 +80,17 @@ function FindListing() {
     }
     return false;
   };
-  return (
+  return !user ? (
+    <div className="loginStatus">
+      <br />
+      <br />
+      <br />
+      <br />
+      <label class="loadingmsg">
+        Loading....Please wait. If you are not logged in, please login.
+      </label>
+    </div>
+  ) : (
     <div className="App">
       <header className="AllListingsHeader">Pick your filters</header>
       <div class="boxes">
