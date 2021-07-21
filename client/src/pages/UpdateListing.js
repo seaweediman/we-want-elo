@@ -135,7 +135,7 @@ function UpdateListing({ match }) {
     }
   };
 
-  return !user ? (
+  return !user || !id ? (
     ""
   ) : user.id !== id ? (
     <header className="createlistingheader">

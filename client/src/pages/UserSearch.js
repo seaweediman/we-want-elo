@@ -62,7 +62,8 @@ function UserSearch() {
           );
         })}
       ;
-      {alluser.filter((val) => {
+      {alluser &&
+      alluser.filter((val) => {
         if (searchTerm === "") {
           return val;
         } else if (
