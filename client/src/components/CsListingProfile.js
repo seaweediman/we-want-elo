@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-function ApexListing(props) {
+function CsListingProfile(props) {
   const [user, setUser] = useState({});
   useEffect(() => {
     async function fetchUser() {
@@ -56,21 +56,17 @@ function ApexListing(props) {
   };
 
   return (
-    <div className="eachListing">
+    <div class="eachListing">
       {user !== undefined &&
       user.id === props.steamid &&
       Math.floor((new Date() - new Date(props.time)) / (1000 * 3600 * 24)) <
         3 ? (
         <div class="help-tip">
-          <p>
-            This is the inline help tip! It can contain all kinds of HTML. Style
-            it as you please.
-          </p>
+          <p>You can only bump after 3 days after it was last updated</p>
         </div>
       ) : (
         ""
       )}
-
       <h1 class="inner">
         <header class="line">
           <mark class="left"> Name: </mark>
@@ -97,21 +93,16 @@ function ApexListing(props) {
           <mark class="left">Rank:</mark>{" "}
           <mark class="right">{props.rank}</mark>
         </header>
-
         <div>
-          {" "}
           <header class="line">
-            <mark class="left">Legends:</mark>{" "}
+            <mark class="left">Playstyle:</mark>{" "}
             <mark class="right">{props.playstyle}</mark>
           </header>
           <header class="line">
             <mark class="left">Role:</mark>{" "}
-            <mark class="right">
-              {props.legend1} {props.legend2} {props.legend3}
-            </mark>
+            <mark class="right">{props.role}</mark>
           </header>
         </div>
-
         <header class="line">
           <mark class="left">Description:</mark>{" "}
           <mark class="right">{props.desc}</mark>
@@ -155,7 +146,11 @@ function ApexListing(props) {
           ) : (
             ""
           )}
-          {user !== undefined && user.id === props.steamid ? (
+          {user !== undefined &&
+          user.id === props.steamid &&
+          Math.floor(
+            (new Date() - new Date(props.time)) / (1000 * 3600 * 24)
+          ) >= 3 ? (
             <Link class="bumpbtn" onClick={() => bumpListing(props.id)}>
               Bump
             </Link>
@@ -163,18 +158,9 @@ function ApexListing(props) {
             ""
           )}
         </btn>
-        {user !== undefined && user.id !== props.steamid ? (
-          <div class="add">
-          <a class="addfriendbtn" href={`steam://friends/add/${props.steamid}`}>
-            Add Friend
-          </a>
-          </div>
-        ) : (
-          ""
-        )}
       </h1>
     </div>
   );
 }
 
-export default ApexListing;
+export default CsListingProfile;

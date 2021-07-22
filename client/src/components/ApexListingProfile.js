@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-function ApexListing(props) {
+function ApexListingProfile(props) {
   const [user, setUser] = useState({});
   useEffect(() => {
     async function fetchUser() {
@@ -163,18 +163,9 @@ function ApexListing(props) {
             ""
           )}
         </btn>
-        {user !== undefined && user.id !== props.steamid ? (
-          <div class="add">
-          <a class="addfriendbtn" href={`steam://friends/add/${props.steamid}`}>
-            Add Friend
-          </a>
-          </div>
-        ) : (
-          ""
-        )}
       </h1>
     </div>
   );
 }
 
-export default ApexListing;
+export default ApexListingProfile;

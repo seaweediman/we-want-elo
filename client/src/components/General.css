@@ -77,58 +77,113 @@
 
 
 .HomepageDescription {
-  color: none;
+  color: rgb(160, 40, 160);
   /* font-family: "Righteous", cursive; */
   font-family: "VT323", monospace;
-  /* font-weight: 100px; */
+
+  font-weight: 100px;
   font-size: 70px;
   letter-spacing: 5px;
   transform: translateY(-1500px);
   display: flex;
   justify-content: center;
   padding:0px 40px;
-  text-shadow: 0px 0px 7px rgba(157, 20, 220, 0.724), 0px 0px 4px rgba(0, 255, 234, 0.793), 0px 0px 7px rgb(111, 255, 0);
+  text-shadow: 1px 1px 1px white;
+  /* text-shadow: -3px 0px 3px rgb(174, 0, 255), 3px 0px 5px rgba(248, 248, 248, 0.793), 0px 3px 3px rgb(0, 119, 255); */
+
 }
 
 .icons {
   display: flex;
-  justify-content: center;
-  padding-right: 80px;
+  flex-direction: column;
+  flex-wrap: nowrap;
   transform: translateY(-1600px);
+  
 }
 
 .apexicon {
-  display: flex;
+  display:inline-flex;
   justify-content: center;
-  background: lightslategrey;
-  transform: scale(0.5);
+  background: url(https://i.ibb.co/84KD8md/download.jpg);
+  background-size: cover;
+  /* background-size: 1500px; */
+  transform: scale(0.6) translateY(-200px);
   border: solid;
-  margin: auto;
+  width: auto;
   border-width: 7px;
-  border-color: white;
+  border-color: rgb(255, 255, 255);
   border-radius: 30px;
-  height: 500px;
+  transition-duration: 0.3s;
+
+  
+}
+
+.apexicon::before {    
+  content: "";
+  background: url(https://wallpaperaccess.com/full/3349632.jpg);
+  background-size: cover;
+  border-radius: 25px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.8;
+}
+
+.apexicon a{
+  transform: scale(0.6);
 }
 
 .apexicon:hover {
-  border-color: gray;
+  border-color: bisque;
+  opacity: 0.9;
 }
 
 
 .csgoicon {
-  display: flex;
+  display:flex;
   justify-content: center;
-  background: lightslategrey;
-  transform: scale(0.5);
+  background: url(https://media.istockphoto.com/photos/purple-defocused-blurred-motion-abstract-background-picture-id1273929462?b=1&k=6&m=1273929462&s=170667a&w=0&h=dtTfnKoVPXB6iqi5XT5Qbw-XNRRMr1fqaR2xemqg_cA=);
+  background-size: cover;
+  height: auto;
+  transform: scale(0.6);
   border: solid;
+  width: auto;
   border-width: 7px;
   border-color: white;
   border-radius: 30px;
-  height: 500px;
+  transition-duration: 0.3s;
+}
+
+.csgoicon::before {    
+  content: "";
+  background: url(https://www.uptoider.com/wp-content/uploads/2019/11/1170x658_HUUUGE_CS_GO_UPDATE_1552564894493_HJeUsMTvw4-768x432.png);
+  background-size: cover;
+  border-radius: 25px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.6;
+}
+.csgoicon a{
+  transform: scale(0.5);
 }
 
 .csgoicon:hover {
-  border-color: gray;
+  border-color: bisque;
+  opacity: 0.9;
+}
+
+.link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 .homepage {
