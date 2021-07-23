@@ -62,10 +62,7 @@ function ApexListing(props) {
       Math.floor((new Date() - new Date(props.time)) / (1000 * 3600 * 24)) <
         3 ? (
         <div class="help-tip">
-          <p>
-            This is the inline help tip! It can contain all kinds of HTML. Style
-            it as you please.
-          </p>
+          <p>You can only bump after 3 days after it was last updated</p>
         </div>
       ) : (
         ""
@@ -101,11 +98,11 @@ function ApexListing(props) {
         <div>
           {" "}
           <header class="line">
-            <mark class="left">Legends:</mark>{" "}
+            <mark class="left">Playstyle:</mark>{" "}
             <mark class="right">{props.playstyle}</mark>
           </header>
           <header class="line">
-            <mark class="left">Role:</mark>{" "}
+            <mark class="left">Legends:</mark>{" "}
             <mark class="right">
               {props.legend1} {props.legend2} {props.legend3}
             </mark>
