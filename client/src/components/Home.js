@@ -58,16 +58,16 @@ function Home() {
       </h1>
       <h2 class="HomepageDescription">The community for gamers</h2>
       <div class="icons">
-        <div class="csgoicon">
-          <a href="https://blog.counter-strike.net/">
-            <img src="https://1000logos.net/wp-content/uploads/2017/12/CSGO-Logo-768x432.png" />
+        <a class="csgoicon" href="https://blog.counter-strike.net/">
+        <a href="https://blog.counter-strike.net/">
+            <img src="https://pngimg.com/uploads/counter_strike/counter_strike_PNG77.png" />
           </a>
-        </div>
-        <div class="apexicon">
+        </a>
+        <a class="apexicon" href="https://www.ea.com/en-gb/games/apex-legends">
           <a href="https://www.ea.com/en-gb/games/apex-legends">
             <img src="https://i.ibb.co/cN9dByH/apex-legends-logo-png-transparent.png" />
           </a>
-        </div>
+        </a>
       </div>
     </div>
   );

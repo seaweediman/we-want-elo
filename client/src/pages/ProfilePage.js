@@ -2,8 +2,8 @@ import "./Pages.css";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import CsListing from "../components/CsListing";
-import ApexListing from "../components/ApexListing";
+import CsListing from "../components/CsListingProfile";
+import ApexListing from "../components/ApexListingProfile";
 
 <link
   rel="stylesheet"
@@ -147,15 +147,18 @@ function ProfilePage({ match }) {
       <br />
       <br />
       <header class="ProfileHeader">{profile.displayName}'s profile</header>
+      {/* <br />
+      <br />
+      <br /> */}
+
+
       {user.id === match.params.id ? (
         ""
       ) : (
-        <a href={`steam://friends/add/${match.params.id}`}>
-          <button class="addfriendbtn">Add Friend</button>
+        <a class="addfriendprofilebtn" href={`steam://friends/add/${match.params.id}`}>
+          Add Friend
         </a>
       )}
-      <br />
-      <br />
       <div className="ProfileContents">
         <p class="BioTag">About me: </p>
         <p class="BioDesc">{owner.bio}</p>
@@ -203,6 +206,7 @@ function ProfilePage({ match }) {
         ) : owner.steamid === user.id ? (
           ""
         ) : addComment ? (
+          <div>
           <div className="RatingDescriptionBox">
             <input
               type="text"
@@ -213,6 +217,7 @@ function ProfilePage({ match }) {
                 setNewComment(event.target.value);
               }}
             ></input>{" "}
+            </div>
             <select
               className="RatingOptionBox"
               onChange={(event) => {

@@ -112,7 +112,7 @@ function CsListing(props) {
           <mark class="right">{props.rating}</mark>
         </header>
         <header class="line">
-          <mark class="left">Updated on:</mark>{" "}
+          <mark class="left">Updated at:</mark>{" "}
           <mark class="right">
             {new Date(props.time).toLocaleDateString()}
             <br />
@@ -159,9 +159,11 @@ function CsListing(props) {
           )}
         </btn>
         {user !== undefined && user.id !== props.steamid ? (
-          <a href={`steam://friends/add/${props.steamid}`}>
-            <button class="addfriendbtn">Add Friend</button>
+          <div class="add">
+          <a class="addfriendbtn" href={`steam://friends/add/${props.steamid}`}>
+            Add Friend
           </a>
+          </div>
         ) : (
           ""
         )}

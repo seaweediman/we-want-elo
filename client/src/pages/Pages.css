@@ -22,12 +22,12 @@
   text-decoration: none;
   border-radius: 5px;
   display: inline-block;
-  transition-duration: 0.1s;
+
   cursor: pointer;
 }
 
 .updatebtn:hover {
-  color: #5c58bb;
+  color: black;
   opacity: 1px;
   background-image: linear-gradient(
     to right,
@@ -57,7 +57,7 @@
   text-decoration: none;
   border-radius: 5px;
   display: inline-block;
-  transition-duration: 0.1s;
+
   cursor: pointer;
 }
 
@@ -83,14 +83,12 @@
   font-size: 25px;
   font-family: "Tourney", cursive;
   background-color: darkgoldenrod;
-  /* background-color: #5c58bb; */
 
   padding: 5px 5px;
   text-align: center;
   text-decoration: none;
   border-radius: 5px;
   display: inline-block;
-  transition-duration: 0.1s;
 
   cursor: pointer;
 }
@@ -115,6 +113,45 @@
   }
 }
 
+.addfriendbtn {
+
+  color: gold;
+  font-size: 25px;
+  font-family: "Tourney", cursive;
+  background-color: rgb(14, 85, 35);
+  border: none;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  transition-duration: 0s;
+  cursor: pointer;
+}
+
+.addfriendbtn:hover {
+  color: black;
+  opacity: 1px;
+  background-image: linear-gradient(
+    to right,
+    green 1%,
+    rgb(204, 173, 0) 1% /* aqua 100% */
+  );
+  animation: slidebg 1s infinite;
+  animation-duration: infinite;
+}
+@keyframes slidebg {
+  to {
+    background-position: 100000vw;
+  }
+}
+
+.add {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
 .deletecommentbtn {
   font-size: 20px;
   font-family: "VT323", monospace;
@@ -136,43 +173,28 @@
   background: blue;
 }
 
-.addfriendbtn {
-  /* font-size: 20px;
+.addfriendprofilebtn {
+  transform: translateX(-45px) translateY(-20px);
   font-family: "VT323", monospace;
-  background-color: rgb(47, 255, 116);
-  border: none;
-  padding: 5px 5px;
-  text-align: center;
+  font-size: 30px;
+  color: rgb(214, 214, 181);
+  float: right;
+  padding: 5px;
   text-decoration: none;
-  border-radius: 5px;
-  display: inline-block;
-  transition-duration: 0.5s;
-  transition-property: box-shadow;
-  /* transform: translateY(40px); 
-  cursor: pointer; */
-  border-color: yellowgreen;
-  border-width: 1px;
-  border-style: dashed;
-  color: beige;
-  font-size: 25px;
-  font-family: "Tourney", cursive;
-  background-color: green;
-  /* background-color: #5c58bb; */
-
-  padding: 5px 5px;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 5px;
-  display: inline-block;
-  transition-duration: 0.1s;
-
   cursor: pointer;
+  border: solid rgb(99, 148, 26);
+  border-radius: 15px;
+  border-width: 5px;
+  transition-duration: 0.3s;
 }
 
-.addfriendbtn:hover {
-  color: blanchedalmond;
-  background: blue;
+.addfriendprofilebtn:hover {
+  background: #b957ce;
+  color: white;
+  border-color: rgb(126, 214, 39);
 }
+
+
 
 .createlistingbtn {
   color: beige;
@@ -507,6 +529,8 @@ select {
   font-size: 35px;
   text-align: center;
   transform: translateY(-30px);
+  /* padding: 10px;
+  margin-left: 20px; */
 }
 
 .Review {
@@ -575,11 +599,11 @@ select {
   padding: 8px 8px;
   text-decoration: none;
   border-radius: 10px;
-  /* transition: width 2s, height 2s, transform 1s; */
+  transform: translateY(-40px);
   cursor: pointer;
-  display: flexbox;
   justify-content: center;
   text-align: center;
+  transition-duration: 0.3s;
 }
 
 .Reviewbtn2:hover {
@@ -597,8 +621,9 @@ select {
   padding: 8px 8px;
   text-decoration: none;
   border-radius: 13px;
-  transition: width 2s, height 2s, transform 1s;
+  transform: translateY(-40px);
   cursor: pointer;
+  transition-duration: 0.3s;
 }
 
 .Reviewbtn1:hover {
@@ -692,6 +717,18 @@ textarea::placeholder {
   font-family: "Righteous", cursive;
   color: #93c8c4;
   background: #2c2e3b;
+  padding: 10px;
+  margin-left: 29px;
+}
+
+.RatingDescriptionBox {
+  /* width: fit-content; */
+  font-family: "Righteous", cursive;
+  color: #93c8c4;
+
+  padding: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .errormsg {

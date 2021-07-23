@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-function ApexListing(props) {
+function ApexListingProfile(props) {
   const [user, setUser] = useState({});
   useEffect(() => {
     async function fetchUser() {
@@ -62,7 +62,10 @@ function ApexListing(props) {
       Math.floor((new Date() - new Date(props.time)) / (1000 * 3600 * 24)) <
         3 ? (
         <div class="help-tip">
-          <p>You can only bump after 3 days after it was last updated</p>
+          <p>
+            This is the inline help tip! It can contain all kinds of HTML. Style
+            it as you please.
+          </p>
         </div>
       ) : (
         ""
@@ -98,11 +101,11 @@ function ApexListing(props) {
         <div>
           {" "}
           <header class="line">
-            <mark class="left">Playstyle:</mark>{" "}
+            <mark class="left">Legends:</mark>{" "}
             <mark class="right">{props.playstyle}</mark>
           </header>
           <header class="line">
-            <mark class="left">Legends:</mark>{" "}
+            <mark class="left">Role:</mark>{" "}
             <mark class="right">
               {props.legend1} {props.legend2} {props.legend3}
             </mark>
@@ -160,18 +163,9 @@ function ApexListing(props) {
             ""
           )}
         </btn>
-        {user !== undefined && user.id !== props.steamid ? (
-          <div class="add">
-          <a class="addfriendbtn" href={`steam://friends/add/${props.steamid}`}>
-            Add Friend
-          </a>
-          </div>
-        ) : (
-          ""
-        )}
       </h1>
     </div>
   );
 }
 
-export default ApexListing;
+export default ApexListingProfile;
