@@ -62,7 +62,7 @@ function CsListing(props) {
       Math.floor((new Date() - new Date(props.time)) / (1000 * 3600 * 24)) <
         3 ? (
         <div class="help-tip">
-          <p>You can only bump after 3 days after it was last updated</p>
+          <p>You can only bump 3 days after it was last updated</p>
         </div>
       ) : (
         ""
