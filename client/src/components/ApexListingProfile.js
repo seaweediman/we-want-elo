@@ -62,10 +62,7 @@ function ApexListingProfile(props) {
       Math.floor((new Date() - new Date(props.time)) / (1000 * 3600 * 24)) <
         3 ? (
         <div class="help-tip">
-          <p>
-            This is the inline help tip! It can contain all kinds of HTML. Style
-            it as you please.
-          </p>
+          <p>You can only bump 3 days after it was last updated</p>
         </div>
       ) : (
         ""
@@ -155,7 +152,10 @@ function ApexListingProfile(props) {
           ) : (
             ""
           )}
-          {user !== undefined && user.id === props.steamid ? (
+          {user !== undefined && user.id === props.steamid 
+          && Math.floor(
+            (new Date() - new Date(props.time)) / (1000 * 3600 * 24)
+          ) >= 3 ? (
             <Link class="bumpbtn" onClick={() => bumpListing(props.id)}>
               Bump
             </Link>
