@@ -559,10 +559,10 @@ select {
   padding: 8px 8px;
   text-decoration: none;
   border-radius: 10px;
-  transition: width 2s, height 2s, transform 1s;
   cursor: pointer;
   display: flex;
   justify-content: center;
+  transition-duration: 0.2s;
 }
 
 .Biobtn2:hover {
@@ -580,8 +580,9 @@ select {
   padding: 8px 8px;
   text-decoration: none;
   border-radius: 40px;
-  transition: width 2s, height 2s, transform 1s;
   cursor: pointer;
+
+
   /* justify-content: center; */
 }
 .Biobtn1:hover {
@@ -661,6 +662,7 @@ textarea::placeholder {
   font-size: 20px;
   color: white;
   opacity: 0.8;
+
   /* text-align: center; */
 }
 
@@ -671,11 +673,14 @@ textarea::placeholder {
   justify-content: space-evenly;
   flex-wrap: wrap;
   flex-flow: column;
+  padding-right: 30px;
+  padding-left: 30px;
   /* max-width: fit-content; */
 }
 .ChangeBioButton {
   display: flex;
   justify-content: center;
+
 }
 
 .UpdateBioButton {
@@ -725,7 +730,6 @@ textarea::placeholder {
   /* width: fit-content; */
   font-family: "Righteous", cursive;
   color: #93c8c4;
-
   padding: 10px;
   margin-left: 20px;
   margin-right: 20px;
@@ -741,44 +745,52 @@ textarea::placeholder {
   position: absolute;
   text-align: center;
   right: 60px;
-  transform: translateY(10px);
-  background-color: #bcdbea;
+  transform: translateY(20px) translateX(5px) scale(1.3);
+  background-color: #b957ce;
   border-radius: 50%;
   width: 24px;
   height: 24px;
   font-size: 14px;
   line-height: 26px;
   cursor: default;
+  border-style: solid;
+  border-color: white;
+  border-width: 1.5px;
 }
 
 .help-tip:before {
+  font-family: "VT323", monospace;
+  font-size: 25px;
   content: "?";
-  font-weight: bold;
-  color: #fff;
+  color: white;
+
 }
 
 .help-tip:hover p {
   display: block;
   transform-origin: 100% 0%;
-
   -webkit-animation: fadeIn 0.3s ease-in-out;
   animation: fadeIn 0.3s ease-in-out;
 }
 
 .help-tip p {
   /* The tooltip */
+  font-family: "VT323", monospace;
   display: none;
   text-align: left;
-  background-color: #1e2021;
-  padding: 20px;
+  background-color: rgb(0, 141, 197);
+  border: solid;
+  border-color: snow;
+  border-width: 1px;
+  padding: 10px;
   width: 300px;
   position: absolute;
   border-radius: 3px;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
   right: -4px;
-  color: #fff;
-  font-size: 13px;
+  color: white;
+  font-size: 14px;
   line-height: 1.4;
+
 }
 
 .help-tip p:before {
@@ -788,7 +800,7 @@ textarea::placeholder {
   width: 0;
   height: 0;
   border: 6px solid transparent;
-  border-bottom-color: #1e2021;
+  border-bottom-color: white;
   right: 10px;
   top: -12px;
 }
