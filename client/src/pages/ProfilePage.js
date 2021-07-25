@@ -151,11 +151,13 @@ function ProfilePage({ match }) {
       <br />
       <br /> */}
 
-
       {user.id === match.params.id ? (
         ""
       ) : (
-        <a class="addfriendprofilebtn" href={`steam://friends/add/${match.params.id}`}>
+        <a
+          class="addfriendprofilebtn"
+          href={`steam://friends/add/${match.params.id}`}
+        >
           Add Friend
         </a>
       )}
@@ -174,7 +176,7 @@ function ProfilePage({ match }) {
               // rows="4" cols="80"
               rows="8"
               cols="140"
-              placeholder="About yourself..."
+              defaultValue={owner.bio}
               onChange={(event) => {
                 setNewBio(event.target.value);
               }}
@@ -207,16 +209,16 @@ function ProfilePage({ match }) {
           ""
         ) : addComment ? (
           <div>
-          <div className="RatingDescriptionBox">
-            <input
-              type="text"
-              rows="8"
-              cols="140"
-              placeholder="Write a comment about this user..."
-              onChange={(event) => {
-                setNewComment(event.target.value);
-              }}
-            ></input>{" "}
+            <div className="RatingDescriptionBox">
+              <input
+                type="text"
+                rows="8"
+                cols="140"
+                placeholder="Write a comment about this user..."
+                onChange={(event) => {
+                  setNewComment(event.target.value);
+                }}
+              ></input>{" "}
             </div>
             <select
               className="RatingOptionBox"

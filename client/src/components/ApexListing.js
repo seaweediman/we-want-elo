@@ -152,7 +152,11 @@ function ApexListing(props) {
           ) : (
             ""
           )}
-          {user !== undefined && user.id === props.steamid ? (
+          {user !== undefined &&
+          user.id === props.steamid &&
+          Math.floor(
+            (new Date() - new Date(props.time)) / (1000 * 3600 * 24)
+          ) >= 3 ? (
             <Link class="bumpbtn" onClick={() => bumpListing(props.id)}>
               Bump
             </Link>
@@ -162,9 +166,12 @@ function ApexListing(props) {
         </btn>
         {user !== undefined && user.id !== props.steamid ? (
           <div class="add">
-          <a class="addfriendbtn" href={`steam://friends/add/${props.steamid}`}>
-            Add Friend
-          </a>
+            <a
+              class="addfriendbtn"
+              href={`steam://friends/add/${props.steamid}`}
+            >
+              Add Friend
+            </a>
           </div>
         ) : (
           ""

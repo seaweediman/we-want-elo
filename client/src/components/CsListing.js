@@ -160,9 +160,12 @@ function CsListing(props) {
         </btn>
         {user !== undefined && user.id !== props.steamid ? (
           <div class="add">
-          <a class="addfriendbtn" href={`steam://friends/add/${props.steamid}`}>
-            Add Friend
-          </a>
+            <a
+              class="addfriendbtn"
+              href={`steam://friends/add/${props.steamid}`}
+            >
+              Add Friend
+            </a>
           </div>
         ) : (
           ""
