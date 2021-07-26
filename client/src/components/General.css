@@ -2,17 +2,14 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Righteous&family=VT323&family=Press+Start+2P&family=Londrina+Shadow&family=ZCOOL+QingKe+HuangYou&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display&display=swap'); */
 
-
-
 .homepage {
-
 }
 
 .Catchphrase {
   color: rgb(0, 110, 255);
   background: none;
   font-family: "Press Start 2P", cursive;
-  margin:auto;
+  margin: auto;
   width: 25%;
   transform: translateY(-1700px);
 
@@ -23,27 +20,19 @@
   border-radius: 20px;
   text-align: center;
   transition: 0.2s linear;
-
 }
-
-
 
 .Catchphrase:hover {
   color: rgb(0, 166, 255);
   border-color: hotpink;
   background: #131812;
-  
-
 }
 
 .GiControllerIcon {
   color: lime;
   background: none;
   font-size: 70px;
-
 }
-
-
 
 .username {
   color: rgb(0, 166, 255);
@@ -57,7 +46,6 @@
   display: flex;
   justify-content: center;
   text-shadow: 0px 0px 5px magenta;
-
 }
 
 .backgroundimage {
@@ -67,14 +55,13 @@
   display: flex;
   justify-content: center;
   opacity: 0.6;
-  transform: scale(0.50);
+  transform: scale(0.5);
   /* filter: blur(2px); */
   /* object-fit: cover; */
   /* object-position:50% 50%; */
   /* transform: translateY(55%) scale(2); */
   /* transform: scale(0.4); */
 }
-
 
 .HomepageDescription {
   color: rgb(160, 40, 160);
@@ -87,10 +74,9 @@
   transform: translateY(-1500px);
   display: flex;
   justify-content: center;
-  padding:0px 40px;
+  padding: 0px 40px;
   text-shadow: 1px 1px 1px white;
   /* text-shadow: -3px 0px 3px rgb(174, 0, 255), 3px 0px 5px rgba(248, 248, 248, 0.793), 0px 3px 3px rgb(0, 119, 255); */
-
 }
 
 .icons {
@@ -98,11 +84,10 @@
   flex-direction: column;
   flex-wrap: nowrap;
   transform: translateY(-1600px);
-  
 }
 
 .apexicon {
-  display:inline-flex;
+  display: inline-flex;
   justify-content: center;
   background: url(https://i.ibb.co/84KD8md/download.jpg);
   background-size: cover;
@@ -114,11 +99,9 @@
   border-color: rgb(255, 255, 255);
   border-radius: 30px;
   transition-duration: 0.3s;
-
-  
 }
 
-.apexicon::before {    
+.apexicon::before {
   content: "";
   background: url(https://wallpaperaccess.com/full/3349632.jpg);
   background-size: cover;
@@ -131,7 +114,7 @@
   opacity: 0.8;
 }
 
-.apexicon a{
+.apexicon a {
   transform: scale(0.6);
 }
 
@@ -140,9 +123,8 @@
   opacity: 0.9;
 }
 
-
 .csgoicon {
-  display:flex;
+  display: flex;
   justify-content: center;
   background: url(https://media.istockphoto.com/photos/purple-defocused-blurred-motion-abstract-background-picture-id1273929462?b=1&k=6&m=1273929462&s=170667a&w=0&h=dtTfnKoVPXB6iqi5XT5Qbw-XNRRMr1fqaR2xemqg_cA=);
   background-size: cover;
@@ -156,7 +138,7 @@
   transition-duration: 0.3s;
 }
 
-.csgoicon::before {    
+.csgoicon::before {
   content: "";
   background: url(https://www.uptoider.com/wp-content/uploads/2019/11/1170x658_HUUUGE_CS_GO_UPDATE_1552564894493_HJeUsMTvw4-768x432.png);
   background-size: cover;
@@ -168,7 +150,7 @@
   left: 0px;
   opacity: 0.6;
 }
-.csgoicon a{
+.csgoicon a {
   transform: scale(0.5);
 }
 
@@ -227,10 +209,7 @@
   transition-duration: 0.5s;
   /* color: red; */
   color: #fd6abf;
-
 }
-
-
 
 /* 
 .but {
@@ -429,7 +408,7 @@
 /* Footer settings */
 
 .footer {
-  position:fixed;
+  position: fixed;
   bottom: 0;
   opacity: 0.7;
   color: beige;
@@ -439,8 +418,4 @@
   bottom: 0;
   width: 100%; */
   font-family: "Righteous", cursive;
-
 }
-
-
-
