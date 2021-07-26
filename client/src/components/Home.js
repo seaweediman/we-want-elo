@@ -59,7 +59,7 @@ function Home() {
       <h2 class="HomepageDescription">The community for gamers</h2>
       <div class="icons">
         <a class="csgoicon" href="https://blog.counter-strike.net/">
-        <a href="https://blog.counter-strike.net/">
+          <a href="https://blog.counter-strike.net/">
             <img src="https://pngimg.com/uploads/counter_strike/counter_strike_PNG77.png" />
           </a>
         </a>
