@@ -1,6 +1,8 @@
 const express = require("express");
+const listing = require("../models/comment");
 const router = express.Router();
 const Comment = require("../models/comment");
+const user = require("../models/user");
 
 router.post("/", async (req, res) => {
   const desc = req.body.desc;

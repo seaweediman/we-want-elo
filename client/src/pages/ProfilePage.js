@@ -112,18 +112,22 @@ function ProfilePage({ match }) {
     window.location.reload();
   };
 
-  const deleteComment = (id, oldrating) => {
+  const deleteComment = (id, deletedrating) => {
     async function updateRating() {
       const n = allReviews.length;
       const updatedRating =
-        n === 1 ? 0 : (owner.rating * n - oldrating) / (n - 1);
+        n === 1 ? 0 : (owner.rating * n - deletedrating) / (n - 1);
       await axios.patch(`/users/rating/${match.params.id}`, {
         rating: updatedRating,
       });
-      axios.delete(`/comment/${id}`);
+    }
+
+    async function deletereview() {
+      await axios.delete(`/comment/${id}`);
     }
 
     updateRating();
+    deletereview();
     window.location.reload();
   };
 
