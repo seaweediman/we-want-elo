@@ -19,17 +19,17 @@ var environment = process.env.NODE_ENV || "dev";
 
 const returnURL =
   environment !== "dev"
-    ? "https://we-want-elo.herokuapp.com/auth/steam/return"
+    ? "https://we-want-elo-too.herokuapp.com/auth/steam/return"
     : "http://localhost:3001/auth/steam/return";
 
 const realmString =
   environment !== "dev"
-    ? "https://we-want-elo.herokuapp.com/"
+    ? "https://we-want-elo-too.herokuapp.com/"
     : "http://localhost:3001/";
 
 const frontEndURL =
   environment !== "dev"
-    ? "https://we-want-elo.herokuapp.com/"
+    ? "https://we-want-elo-too.herokuapp.com/"
     : "http://localhost:3000/";
 
 passport.serializeUser(function (user, done) {
@@ -43,9 +43,9 @@ passport.deserializeUser(function (obj, done) {
 passport.use(
   new SteamStrategy(
     {
-      returnURL: "https://we-want-elo.herokuapp.com/auth/steam/return",
-      realm: "https://we-want-elo.herokuapp.com/",
-      apiKey: "A5F368B4E61612A7C2A588F8017E88E4",
+      returnURL: "https://we-want-elo-too.herokuapp.com/auth/steam/return",
+      realm: "https://we-want-elo-too.herokuapp.com/",
+      apiKey: "E28EF76C5D4A657372199FD32C66E2C4",
     },
 
     function (identifier, profile, done) {
@@ -84,7 +84,7 @@ passport.use(
 
 app.use(
   cors({
-    origin: "https://we-want-elo.herokuapp.com/", // allow to server to accept request from different origin
+    origin: "https://we-want-elo-too.herokuapp.com/", // allow to server to accept request from different origin
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true, // allow session cookie from browser to pass through
   })
@@ -116,14 +116,14 @@ app.get("/user", function (req, res) {
 
 app.get("/logout", function (req, res) {
   req.logout();
-  res.redirect("https://we-want-elo.herokuapp.com/");
+  res.redirect("https://we-want-elo-too.herokuapp.com/");
 });
 
 app.get(
   "/auth/steam",
   passport.authenticate("steam", { failureRedirect: "/" }),
   function (req, res) {
-    res.redirect("https://we-want-elo.herokuapp.com/");
+    res.redirect("https://we-want-elo-too.herokuapp.com/");
   }
 );
 
@@ -136,7 +136,7 @@ app.get(
   "/auth/steam/return",
   passport.authenticate("steam", { failureRedirect: "/" }),
   function (req, res) {
-    res.redirect("https://we-want-elo.herokuapp.com/");
+    res.redirect("https://we-want-elo-too.herokuapp.com/");
   }
 );
 
